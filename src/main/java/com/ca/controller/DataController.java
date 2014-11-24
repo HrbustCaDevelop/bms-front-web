@@ -10,7 +10,10 @@ import com.ca.pojo.Data;
 import com.ca.service.DataService;
 
 /**
- * @author liuzhilong<alexmaven@icloud.com>
+ * 传感器Controller
+ * @author：刘志龙
+ * @since：2014年11月24日 下午8:29:09
+ * @version:1.0
  */
 @InjectName("dataController")
 public class DataController {

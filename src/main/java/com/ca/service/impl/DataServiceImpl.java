@@ -1,4 +1,4 @@
-package com.ca.impl.service;
+package com.ca.service.impl;
 
 import java.util.List;
 
@@ -9,7 +9,9 @@ import com.ca.pojo.Data;
 import com.ca.service.DataService;
 
 /**
- * @author liuzhilong<alexmaven@icloud.com>
+ * @author：刘志龙
+ * @since：2014年11月24日 下午8:23:27
+ * @version:1.0
  */
 public class DataServiceImpl extends NameEntityService<Data> implements
 		DataService {
@@ -27,6 +29,7 @@ public class DataServiceImpl extends NameEntityService<Data> implements
 				Cnd.wrap("sensorid ='" + attribute + "' ORDER BY id DESC"));
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Data> SelDataByDate(String start, String stop) {
 		return (List<Data>) this.dao().fetch(Data.class,
 				Cnd.where("datatime", ">", start).and("datatime", "<", stop));

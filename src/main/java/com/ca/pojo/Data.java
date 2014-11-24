@@ -4,8 +4,12 @@ import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.Id;
 import org.nutz.dao.entity.annotation.Table;
 
+
 /**
- * @author liuzhilong<alexmaven@icloud.com>
+ * 传感器数据Bean
+ * @author：刘志龙
+ * @since：2014年11月24日 下午8:27:12
+ * @version:1.0
  */
 @Table("t_data")
 public class Data {

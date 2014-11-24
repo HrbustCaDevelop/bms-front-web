@@ -13,7 +13,10 @@ import com.ca.pojo.User;
 import com.ca.service.AccountService;
 
 /**
- * @author liuzhilong<alexmaven@icloud.com>
+ * 账户功能拦截器
+ * @author：刘志龙
+ * @since：2014年11月24日 下午8:29:49
+ * @version:1.0
  */
 @InjectName("acountController")
 public class AcountController {

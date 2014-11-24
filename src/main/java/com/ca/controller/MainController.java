@@ -7,7 +7,10 @@ import org.nutz.mvc.annotation.Modules;
 import org.nutz.mvc.ioc.provider.JsonIocProvider;
 
 /**
- * @author liuzhilong<alexmaven@icloud.com>
+ * Nutz主拦截器
+ * @author：刘志龙
+ * @since：2014年11月24日 下午8:28:50
+ * @version:1.0
  */
 @Modules({ AcountController.class , DataController.class})
 @IocBy(type = JsonIocProvider.class, args = { "nutz.js"})

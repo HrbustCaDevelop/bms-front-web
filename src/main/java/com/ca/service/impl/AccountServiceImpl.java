@@ -1,4 +1,4 @@
-package com.ca.impl.service;
+package com.ca.service.impl;
 
 import java.util.List;
 
@@ -9,7 +9,9 @@ import com.ca.pojo.User;
 import com.ca.service.AccountService;
 
 /**
- * @author liuzhilong<alexmaven@icloud.com>
+ * @author：刘志龙
+ * @since：2014年11月24日 下午8:23:47
+ * @version:1.0
  */
 public class AccountServiceImpl extends NameEntityService<User> implements AccountService{
 

@@ -3,7 +3,10 @@ package com.ca.pojo;
 import org.nutz.dao.entity.annotation.*;
 
 /**
- * @author liuzhilong<alexmaven@icloud.com>
+ * 用户Bean
+ * @author：刘志龙
+ * @since：2014年11月24日 下午8:27:25
+ * @version:1.0
  */
 @Table("t_user")
 public class User {
