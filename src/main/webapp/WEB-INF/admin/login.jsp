@@ -35,5 +35,4 @@
 		Copyright &copy; 2014.HUST CA. All rights reserved.
 	</div>
 </body>
-</body>
 </html>

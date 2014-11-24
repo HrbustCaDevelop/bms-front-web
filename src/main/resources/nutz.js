@@ -18,7 +18,7 @@ var ioc = {
         } ]  
     },
     accountService : {
-		type : "com.ca.impl.service.AccountServiceImpl",
+		type : "com.ca.service.impl.AccountServiceImpl",
 		fields : {
 			dao : {
 				refer : 'dao'
@@ -34,7 +34,7 @@ var ioc = {
 		}
 	},
 	dataService : {
-		type : "com.ca.impl.service.DataServiceImpl",
+		type : "com.ca.service.impl.DataServiceImpl",
 		fields : {
 			dao : {
 				refer : 'dao'

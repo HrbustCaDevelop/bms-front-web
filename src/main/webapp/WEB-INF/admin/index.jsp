@@ -158,62 +158,9 @@
 
 </head>
 <body>
-	<header id="header">
-		<hgroup>
-			<h1 class="site_title"><a href="index.html">楼宇防火监测系统</a></h1>
-			<h2 class="section_title"></h2><div class="btn_view_site"><a href="logout">退出登陆</a></div>
-		</hgroup>
-	</header> <!-- end of header bar -->
-	
-	<section id="secondary_bar">
-		<div class="user">
-			<p>您好，${user.username}</p>
-		</div>
-		<div class="breadcrumbs_container">
-			<article class="breadcrumbs"><a href="index.html">楼宇防火监测系统</a> <div class="breadcrumb_divider"></div> <a class="current">数据浏览</a></article>
-		</div>
-	</section><!-- end of secondary bar -->
-	
-	<aside id="sidebar" class="column">
-		<form class="quick_search">
-			<input type="text" value="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
-		</form>
-		<hr/>
-		<h3>数据展示</h3>
-		<ul class="toggle">
-			<li class="icn_tags"><a href="ConvertPort?senid=1">节点1</a></li>
-			<li class="icn_tags"><a href="ConvertPort?senid=2">节点2</a></li>
-			<li class="icn_tags"><a href="ConvertPort?senid=3">节点3</a></li>
-			<li class="icn_tags"><a href="ConvertPort?senid=4">节点4</a></li>
-		</ul>
-		<h3>数据分析</h3>
-		<ul class="toggle">
-			<li class="icn_photo"><a href="#">历史数据</a></li>
-		</ul>
-		<h3>数据预测</h3>
-		<ul class="toggle">
-			<li class="icn_view_users"><a href="#">未来三天</a></li>
-			<li class="icn_view_users"><a href="#">未来七天</a></li>
-		</ul>
-		<h3>节点状态</h3>
-		<ul class="toggle">
-			<li class="icn_tags"><a href="#">节点1</a></li>
-			<li class="icn_tags"><a href="#">节点2</a></li>
-			<li class="icn_tags"><a href="#">节点3</a></li>
-			<li class="icn_tags"><a href="#">节点4</a></li>
-		</ul>
-		<h3>管理功能</h3>
-		<ul class="toggle">
-			<li class="icn_security"><a href="#">修改密码</a></li>
-			<li class="icn_jump_back"><a href="logout">退出登陆</a></li>
-		</ul>
-		
-		<footer>
-			<hr />
-			<p><strong>Copyright &copy; 2014 楼宇防火监测系统</strong></p>
-			<p>Design by <a href="#">Alex</a></p>
-		</footer>
-	</aside><!-- end of sidebar -->
+	<%@ include file="/divide/header.jsp"%>
+	<%@ include file="/divide/lefter.jsp"%>
+	<%@ include file="/divide/footer.jsp"%>
 	
 	<section id="main" class="column">
 		<h4 class="alert_info">欢迎使用楼宇防火监测系统，鼠标悬停于曲线可以实时查看数据。</h4>
@@ -221,7 +168,7 @@
 			<header><h3>数据动态</h3></header>	
 			<input type="hidden" name="senid" id="senid" value="${lastid}">
 			<div id="container" style="min-width: 310px; height: 480px; margin: 0 auto"></div>
-		</article><!-- end of stats article -->
+		</article>
 		<div class="clear"></div>
 		<div class="spacer"></div>
 	</section>
