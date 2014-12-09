@@ -3,7 +3,7 @@ var ioc = {
 		type : "com.ca.bms.show.service.impl.AccountServiceImpl"
 	},
 	dataService : {
-		type : "com.ca.service.impl.DataServiceImpl"
+		type : "com.ca.bms.show.service.impl.DataServiceImpl"
 	},
 	acountController : {
 		type : "com.ca.bms.show.controller.AcountController",
@@ -14,7 +14,7 @@ var ioc = {
 		}
 	},
 	dataController : {
-		type : "com.ca.controller.DataController",
+		type : "com.ca.bms.show.controller.DataController",
 		fields : {
 			dataService : {
 				refer : 'dataService'

@@ -29,7 +29,7 @@
 		<filter-class>org.nutz.mvc.NutFilter</filter-class>
 		<init-param>
 			<param-name>modules</param-name>
-			<param-value>com.ca.controller.MainController</param-value>
+			<param-value>com.ca.bms.show.controller.MainController</param-value>
 		</init-param>
 	</filter>
 

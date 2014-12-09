@@ -1,5 +1,8 @@
 package com.ca.bms.show.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.nutz.ioc.annotation.InjectName;
@@ -7,8 +10,9 @@ import org.nutz.mvc.View;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
+import org.nutz.mvc.view.JspView;
 
-import com.ca.bms.dto.UserDTO;
+import com.ca.bms.entitys.UserEntity;
 import com.ca.bms.show.service.AccountService;
 
 /**
@@ -23,8 +27,15 @@ public class AcountController {
 
 	//登陆
 	@At("login")
-	public View useLogin(@Param(value = "..")UserDTO user,HttpServletRequest request) {
-		return null;
+	public View userLogin(@Param(value = "..")UserEntity user,HttpServletRequest request) {
+		Map<String, Object> msgMap = new HashMap<String, Object>();
+		msgMap = accountService.login(user);
+		if (null != msgMap) {
+			request.getSession().setAttribute("usertoken", msgMap.get("usertoken"));
+			request.getSession().setAttribute("userdata", msgMap.get("userdata"));
+			return new JspView("admin.index");
+		}
+		return new JspView("admin.login");
 	}
 
 	//登出
