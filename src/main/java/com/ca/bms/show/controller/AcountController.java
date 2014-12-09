@@ -1,4 +1,4 @@
-package com.ca.controller;
+package com.ca.bms.show.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,9 +7,9 @@ import org.nutz.mvc.View;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.Param;
-import org.nutz.mvc.view.JspView;
 
-import com.ca.service.AccountService;
+import com.ca.bms.dto.UserDTO;
+import com.ca.bms.show.service.AccountService;
 
 /**
  * 账户功能拦截器
@@ -23,15 +23,8 @@ public class AcountController {
 
 	//登陆
 	@At("login")
-	public View useLogin(@Param(value = "..")User user,
-			HttpServletRequest request) {
-		if (accountService.login(user)) {
-			request.getSession().setAttribute("user", user);
-			request.getSession().setAttribute("lastid", "1");
-			return new JspView("admin.index");
-		} else {
-			return new JspView("admin.login");
-		}
+	public View useLogin(@Param(value = "..")UserDTO user,HttpServletRequest request) {
+		return null;
 	}
 
 	//登出

@@ -1,25 +1,15 @@
 var ioc = {
     accountService : {
-		type : "com.ca.service.impl.AccountServiceImpl",
-		fields : {
-			dao : {
-				refer : 'dao'
-			}
-		}
+		type : "com.ca.bms.show.service.impl.AccountServiceImpl"
+	},
+	dataService : {
+		type : "com.ca.service.impl.DataServiceImpl"
 	},
 	acountController : {
-		type : "com.ca.controller.AcountController",
+		type : "com.ca.bms.show.controller.AcountController",
 		fields : {
 			accountService : {
 				refer : 'accountService'
-			}
-		}
-	},
-	dataService : {
-		type : "com.ca.service.impl.DataServiceImpl",
-		fields : {
-			dao : {
-				refer : 'dao'
 			}
 		}
 	},

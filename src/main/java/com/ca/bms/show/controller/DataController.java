@@ -1,4 +1,4 @@
-package com.ca.controller;
+package com.ca.bms.show.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -6,8 +6,7 @@ import org.nutz.ioc.annotation.InjectName;
 import org.nutz.mvc.annotation.At;
 import org.nutz.mvc.annotation.Ok;
 
-import com.ca.pojo.Data;
-import com.ca.service.DataService;
+import com.ca.bms.show.service.DataService;
 
 /**
  * 传感器Controller
@@ -28,11 +27,9 @@ public class DataController {
 	@Ok("raw:json")
 	public String GetData(String senid,HttpServletRequest request) {
 		System.out.println(senid);
-		request.getSession().setAttribute("lastid",senid);
-        Data data = dataService.SelDataByAttrDesc(senid);
         StringBuilder message = new StringBuilder("");
         message.append("{\"point\":");
-        message.append("{\"temperature\":"+"\""+data.getTemperature()+"\""+","+"\"humidity\""+":"+"\""+data.getHumidity()+"\""+","+"\"nowtime\""+":"+"\""+data.getDatatime()+"\""+"}}");
+        message.append("{\"temperature\":"+"\""+ " " +"\""+","+"\"humidity\""+":"+"\""+ " " +"\""+","+"\"nowtime\""+":"+"\""+ " " +"\""+"}}");
         System.out.println(message);
         return message.toString();
 	}

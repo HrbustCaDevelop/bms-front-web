@@ -1,4 +1,4 @@
-package com.ca.controller;
+package com.ca.bms.show.controller;
 
 import org.nutz.mvc.annotation.Encoding;
 import org.nutz.mvc.annotation.Fail;
