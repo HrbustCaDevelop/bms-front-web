@@ -1,5 +1,3 @@
-# Building-Monitor #
-================
+# Building Monitor API Platform -- Front
 
-## 楼宇防火监测平台 - web端展示模块 ##
-### 学校省级创新创业项目 ###
+> 高校创新实验：楼宇防火监控平台 前端交互页面
