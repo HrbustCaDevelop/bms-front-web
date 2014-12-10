@@ -12,7 +12,7 @@
 	</header>
 	<section id="secondary_bar">
 		<div class="user">
-			<p>您好，${user.username}</p>
+			<p>您好，${userdata.username}</p>
 		</div>
 		<div class="breadcrumbs_container">
 			<article class="breadcrumbs"><a href="#">楼宇防火监测系统</a> <div class="breadcrumb_divider"></div> <a class="current">数据浏览</a></article>

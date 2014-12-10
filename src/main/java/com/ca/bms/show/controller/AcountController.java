@@ -4,13 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-import org.nutz.ioc.annotation.InjectName;
-import org.nutz.mvc.View;
-import org.nutz.mvc.annotation.At;
-import org.nutz.mvc.annotation.Ok;
-import org.nutz.mvc.annotation.Param;
-import org.nutz.mvc.view.JspView;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ca.bms.entitys.UserEntity;
 import com.ca.bms.show.service.AccountService;
@@ -21,26 +18,40 @@ import com.ca.bms.show.service.AccountService;
  * @since：2014年11月24日 下午8:29:49
  * @version:1.0
  */
-@InjectName("acountController")
+@Controller
+@RequestMapping("/user")
 public class AcountController {
 	private AccountService accountService;
 
-	//登陆
-	@At("login")
-	public View userLogin(@Param(value = "..")UserEntity user,HttpServletRequest request) {
+	/**
+	 * 用户注册页面跳转
+	 * @return
+	*/
+
+	public void userRegister() {
+	}
+	
+
+	/**
+	 * 用户登录
+	 * @param user
+	 * @param session
+	 * @return
+	*/
+	@RequestMapping("/login")
+	public String userLogin(UserEntity user,HttpSession session) {
 		Map<String, Object> msgMap = new HashMap<String, Object>();
 		msgMap = accountService.login(user);
 		if (null != msgMap) {
-			request.getSession().setAttribute("usertoken", msgMap.get("usertoken"));
-			request.getSession().setAttribute("userdata", msgMap.get("userdata"));
-			return new JspView("admin.index");
+			session.setAttribute("usertoken", msgMap.get("usertoken"));
+			session.setAttribute("userdata", msgMap.get("userdata"));
+			return "";
 		}
-		return new JspView("admin.login");
+		return "";
 	}
 
 	//登出
-	@At("logout")
-	@Ok("redirect:/")
+
 	public void logout(HttpServletRequest request) {
 		request.getSession().invalidate();
 	}

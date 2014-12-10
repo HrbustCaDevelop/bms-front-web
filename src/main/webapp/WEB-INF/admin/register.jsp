@@ -26,7 +26,7 @@
 			<input type="checkbox" name="remember-me" id="remember-me" /><label
 				for="remember-me">Remember me</label>
 			<div class="forgot-usr-pwd">
-				还没有账户？点我<a href="register">注册</a> ?
+				还没有账户？点我<a href="#">注册</a> ?
 			</div>
 			<input type="submit" name="submit" value="GO" />
 		</form>

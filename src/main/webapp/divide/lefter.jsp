@@ -19,18 +19,6 @@
 		<ul class="toggle">
 			<li class="icn_photo"><a href="#">历史数据</a></li>
 		</ul>
-		<h3>数据预测</h3>
-		<ul class="toggle">
-			<li class="icn_view_users"><a href="#">未来三天</a></li>
-			<li class="icn_view_users"><a href="#">未来七天</a></li>
-		</ul>
-		<h3>节点状态</h3>
-		<ul class="toggle">
-			<li class="icn_tags"><a href="#">节点1</a></li>
-			<li class="icn_tags"><a href="#">节点2</a></li>
-			<li class="icn_tags"><a href="#">节点3</a></li>
-			<li class="icn_tags"><a href="#">节点4</a></li>
-		</ul>
 		<h3>管理功能</h3>
 		<ul class="toggle">
 			<li class="icn_security"><a href="#">修改密码</a></li>

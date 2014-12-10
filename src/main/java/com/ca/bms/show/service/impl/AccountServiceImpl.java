@@ -3,6 +3,8 @@ package com.ca.bms.show.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import com.alibaba.fastjson.JSON;
 import com.ca.bms.entitys.UserEntity;
 import com.ca.bms.enumtype.UserStatusEnum;
@@ -15,6 +17,7 @@ import com.ca.bms.show.utils.HttpClientUtils;
  * @since：2014年11月24日 下午8:23:47
  * @version:1.0
  */
+@Service("accountService")
 public class AccountServiceImpl implements AccountService{
 	
 	private static final String URL_HEADER = "http://222.27.196.5/bms/user/";
@@ -31,6 +34,10 @@ public class AccountServiceImpl implements AccountService{
 			if (rmud.getReturnmsg().trim().equals(UserStatusEnum.LS.getValue())) {
 				returnMap.put("usertoken", rmud.getUsertoken());
 				returnMap.put("userdata", rmud.getUserdata());
+				
+				
+				
+				
 			}else {
 				return null;
 			}

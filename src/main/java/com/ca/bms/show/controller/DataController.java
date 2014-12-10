@@ -2,9 +2,7 @@ package com.ca.bms.show.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.nutz.ioc.annotation.InjectName;
-import org.nutz.mvc.annotation.At;
-import org.nutz.mvc.annotation.Ok;
+import org.springframework.stereotype.Controller;
 
 import com.ca.bms.show.service.DataService;
 
@@ -14,7 +12,7 @@ import com.ca.bms.show.service.DataService;
  * @since：2014年11月24日 下午8:29:09
  * @version:1.0
  */
-@InjectName("dataController")
+@Controller
 public class DataController {
 	private DataService dataService;
 	
@@ -23,8 +21,7 @@ public class DataController {
 	 * @param request
 	 * @return
 	 */
-	@At("GetData")
-	@Ok("raw:json")
+
 	public String GetData(String senid,HttpServletRequest request) {
 		System.out.println(senid);
         StringBuilder message = new StringBuilder("");
@@ -34,14 +31,10 @@ public class DataController {
         return message.toString();
 	}
 	
-	@At("ConvertPort")
-	@Ok("jsp:admin.index")
 	public void ConvertPort(String senid,HttpServletRequest request) {
         request.getSession().setAttribute("lastid",senid);
 	}
-	
-	@At("getHistory")
-	@Ok("jsp:admin.index")
+
 	public void getHistory(String senid,HttpServletRequest request) {
         request.getSession().setAttribute("lastid",senid);
 	}
