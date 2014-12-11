@@ -32,15 +32,23 @@ public class AcountController {
 		return "admin/register";
 	}
 	
-
+	/**
+	 * 用户注册页面跳转
+	 * @return
+	*/
+	@RequestMapping("/login.hrbust")
+	public String userLogin() {
+		return "admin/login";
+	}
+	
 	/**
 	 * 用户登录
 	 * @param user
 	 * @param session
 	 * @return
 	*/
-	@RequestMapping("/login.hrbust")
-	public String userLogin(UserEntity user,HttpSession session) {
+	@RequestMapping("/userlogin.hrbust")
+	public String login(UserEntity user,HttpSession session) {
 		Map<String, Object> msgMap = new HashMap<String, Object>();
 		msgMap = accountService.login(user);
 		if (null != msgMap) {

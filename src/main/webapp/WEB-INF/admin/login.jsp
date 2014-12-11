@@ -4,11 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>楼宇防火监测系统登陆页面</title>
 
-<!--- CSS --->
-<link rel="stylesheet" href="css/style.css" type="text/css" />
-
-<link rel="icon" href="images/bm.ico" type="image/x-icon">
-<link rel="shortcut icon" href="images/bm.ico" type="image/x-icon">
+<%@include file="/common/common.jsp"%>
 
 </head>
 <body>
@@ -26,7 +22,7 @@
 			<input type="checkbox" name="remember-me" id="remember-me" /><label
 				for="remember-me">Remember me</label>
 			<div class="forgot-usr-pwd">
-				还没有账户？点我<a href="register">注册</a> ?
+				还没有账户？点我<a href="reg.hrbust">注册</a> ?
 			</div>
 			<input type="submit" name="submit" value="GO" />
 		</form>
