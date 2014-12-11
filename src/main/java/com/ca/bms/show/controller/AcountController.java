@@ -24,19 +24,19 @@ public class AcountController {
 	private AccountService accountService;
 
 	/**
-	 * 用户注册页面跳转
+	 * 跳转到注册页
 	 * @return
 	*/
-	@RequestMapping("/reg.hrbust")
+	@RequestMapping("/reg.bms")
 	public String userRegister() {
 		return "admin/register";
 	}
 	
 	/**
-	 * 用户注册页面跳转
+	 * 跳转到登陆
 	 * @return
 	*/
-	@RequestMapping("/login.hrbust")
+	@RequestMapping("/login.bms")
 	public String userLogin() {
 		return "admin/login";
 	}
@@ -47,7 +47,7 @@ public class AcountController {
 	 * @param session
 	 * @return
 	*/
-	@RequestMapping("/userlogin.hrbust")
+	@RequestMapping("/userlogin.bms")
 	public String login(UserEntity user,HttpSession session) {
 		Map<String, Object> msgMap = new HashMap<String, Object>();
 		msgMap = accountService.login(user);
