@@ -19,17 +19,17 @@
 	<mvc:interceptors>
 		<bean class="com.ca.bms.show.interceptor.SecurityInterceptor"></bean>
 	</mvc:interceptors>
-
+	
 	<!-- 多方法 -->
 	<bean id="paramMethodResolver"
 		class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
 		<property name="paramName" value="action"></property>
 	</bean>
-
+	
 	<!-- 定义视图解析器 -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/"></property>
+		<property name="prefix" value="/WEB-INF/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 </beans>

@@ -27,8 +27,9 @@ public class AcountController {
 	 * 用户注册页面跳转
 	 * @return
 	*/
-
-	public void userRegister() {
+	@RequestMapping("/reg.hrbust")
+	public String userRegister() {
+		return "admin/register";
 	}
 	
 
@@ -38,7 +39,7 @@ public class AcountController {
 	 * @param session
 	 * @return
 	*/
-	@RequestMapping("/login")
+	@RequestMapping("/login.hrbust")
 	public String userLogin(UserEntity user,HttpSession session) {
 		Map<String, Object> msgMap = new HashMap<String, Object>();
 		msgMap = accountService.login(user);

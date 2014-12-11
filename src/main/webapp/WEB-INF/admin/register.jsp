@@ -4,11 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>楼宇防火监测系统登陆页面</title>
 
-<!--- CSS --->
-<link rel="stylesheet" href="css/style.css" type="text/css" />
-
-<link rel="icon" href="images/bm.ico" type="image/x-icon">
-<link rel="shortcut icon" href="images/bm.ico" type="image/x-icon">
+<%@include file="/common/common.jsp"%>
 
 </head>
 <body>
