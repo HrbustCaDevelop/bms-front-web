@@ -1,7 +1,9 @@
 package com.ca.bms.show.service;
 
+import java.util.List;
 import java.util.Map;
 
+import com.ca.bms.dto.SensorDTO;
 import com.ca.bms.entitys.UserEntity;
 
 
@@ -23,4 +25,12 @@ public interface AccountService {
 	 * @return
 	*/
 	public boolean register(UserEntity user);
+	
+	/**
+	 * 获取用户传感器
+	 * @return
+	*/
+	public List<SensorDTO> getSensor(String username, String usertoken);
+	
+	public boolean update(String username, String usertoken);
 }

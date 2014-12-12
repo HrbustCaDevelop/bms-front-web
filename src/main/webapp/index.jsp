@@ -35,7 +35,7 @@
 	<!-- BEGIN LOGIN -->
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="login-form" action="loginc" method="POST">
+		<form class="login-form" action="login" method="POST">
 			<h3 class="form-title">楼宇防火监测平台登陆</h3>
 			<div class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>
@@ -59,7 +59,7 @@
 					<input type="checkbox" name="remember" value="1"/> 记住密码
 				</label>
 				<label class="checkbox">
-					<a href="register">点我注册</a>
+					<a href="register.bms">点我注册</a>
 				</label>
 				<button type="submit" class="btn green pull-right">
 				登陆 <i class="m-icon-swapright m-icon-white"></i>

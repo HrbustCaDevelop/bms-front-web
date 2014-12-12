@@ -24,27 +24,32 @@ public class AcountController {
 	
 	@Autowired
 	private AccountService accountService;
-
+	
 	/**
 	 * 跳转到注册页
 	 * @return
 	*/
-	@RequestMapping("/register")
-	public String userRegister() {
-		return "/account/reg_page";
+	@RequestMapping("/register.bms")
+	public String register_page() {
+		return "/account/register";
 	}
 	
 	/**
 	 * 跳转到登陆
 	 * @return
 	*/
-	@RequestMapping("/index")
-	public String index() {
+	@RequestMapping("/index.bms")
+	public String index_page() {
 		return "index";
 	}
+
+	@RequestMapping("/password.bms")
+	public String password_page() {
+		return "/account/password";
+	}
 	
-	@RequestMapping("/registerc")
-	public String registerc(UserEntity user, HttpServletRequest request) {
+	@RequestMapping("/register")
+	public String register(UserEntity user, HttpServletRequest request) {
 		if (accountService.register(user)) {
 			request.setAttribute("msg", "注册成功！");
 			return "/account/account_status";
@@ -53,6 +58,10 @@ public class AcountController {
 			return "/account/account_status";
 		}
 	}
+
+	public String update(UserEntity user, HttpServletRequest request, HttpSession session) {
+		
+	}
 	
 	/**
 	 * 用户登录
@@ -60,22 +69,27 @@ public class AcountController {
 	 * @param session
 	 * @return
 	*/
-	@RequestMapping("/loginc")
+	@RequestMapping("/login")
 	public String login(UserEntity user,HttpServletRequest request , HttpSession session) {
 		Map<String, Object> msgMap = new HashMap<String, Object>();
 		msgMap = accountService.login(user);
 		if (null != msgMap) {
 			session.setAttribute("usertoken", msgMap.get("usertoken"));
 			session.setAttribute("userdata", msgMap.get("userdata"));
-			return "mainpage";
+			session.setAttribute("mysensor", accountService.getSensor(user.getUsername(), msgMap.get("usertoken").toString()));
+			return "/mainframe/mainpage";
 		}
 		request.setAttribute("msg", "登陆失败！");
 		return "/account/account_status";
 	}
 
-	//登出
-
-	public void logout(HttpServletRequest request) {
+	/**
+	 * 用户登出
+	 * @param request
+	*/
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request) {
 		request.getSession().invalidate();
+		return "index";
 	}
 }

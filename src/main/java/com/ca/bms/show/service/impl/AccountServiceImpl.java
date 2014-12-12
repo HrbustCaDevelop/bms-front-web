@@ -1,13 +1,17 @@
 package com.ca.bms.show.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
+import com.ca.bms.dto.SensorDTO;
 import com.ca.bms.entitys.UserEntity;
 import com.ca.bms.enumtype.UserStatusEnum;
+import com.ca.bms.msg.dto.ReturnMsgSensorDTO;
 import com.ca.bms.msg.dto.ReturnMsgUserDTO;
 import com.ca.bms.show.service.AccountService;
 import com.ca.bms.show.utils.HttpClientUtils;
@@ -62,5 +66,28 @@ public class AccountServiceImpl implements AccountService{
 		}
 		return returnMap;
 	}
+
+	@Override
+	public List<SensorDTO> getSensor(String username, String usertoken) {
+		List<SensorDTO> returnList = new ArrayList<SensorDTO>();
+		String URL = URL_HEADER + "mysensor";
+		Map<String, String> paramsMap = new HashMap<String, String>();
+		paramsMap.put("username", username);
+		paramsMap.put("usertoken", usertoken);
+		ReturnMsgSensorDTO rmud;
+		try {
+			rmud = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap), ReturnMsgSensorDTO.class);
+			if (rmud.getReturnmsg().trim().equals(UserStatusEnum.FS.getValue())) {
+				returnList = rmud.getSensor();
+			}else {
+				return null;
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		return returnList;
+	}
+
+
 
 }

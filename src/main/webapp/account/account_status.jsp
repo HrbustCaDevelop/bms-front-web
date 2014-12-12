@@ -46,7 +46,7 @@
 				<button type="button" class="btn red pull-left" onclick="history.go(-1)">
 				返回 <i class="m-icon-swapleft m-icon-white"></i>
 				</button>
-				<button type="button" class="btn green pull-right" onclick="window.location.href='index'">
+				<button type="button" class="btn green pull-right" onclick="window.location.href='index.bms'">
 				登陆 <i class="m-icon-swapright m-icon-white"></i>
 				</button>
 			</div>
