@@ -35,7 +35,7 @@
 	<!-- BEGIN LOGIN -->
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="login-form" action="login.php" method="POST">
+		<form class="login-form" action="loginc" method="POST">
 			<h3 class="form-title">楼宇防火监测平台登陆</h3>
 			<div class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>

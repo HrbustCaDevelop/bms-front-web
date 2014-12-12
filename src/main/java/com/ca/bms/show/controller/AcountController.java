@@ -44,11 +44,13 @@ public class AcountController {
 	}
 	
 	@RequestMapping("/registerc")
-	public String registerc(UserEntity user) {
+	public String registerc(UserEntity user, HttpServletRequest request) {
 		if (accountService.register(user)) {
-			return "index";
+			request.setAttribute("msg", "注册成功！");
+			return "account_status";
 		}else {
-			return null;
+			request.setAttribute("msg", "注册失败！");
+			return "account_status";
 		}
 	}
 	
@@ -59,15 +61,16 @@ public class AcountController {
 	 * @return
 	*/
 	@RequestMapping("/loginc")
-	public String login(UserEntity user,HttpSession session) {
+	public String login(UserEntity user,HttpServletRequest request , HttpSession session) {
 		Map<String, Object> msgMap = new HashMap<String, Object>();
 		msgMap = accountService.login(user);
 		if (null != msgMap) {
 			session.setAttribute("usertoken", msgMap.get("usertoken"));
 			session.setAttribute("userdata", msgMap.get("userdata"));
-			return "";
+			return "mainpage";
 		}
-		return "";
+		request.setAttribute("msg", "登陆失败！");
+		return "account_status";
 	}
 
 	//登出

@@ -20,7 +20,7 @@ import com.ca.bms.show.utils.HttpClientUtils;
 @Service("accountService")
 public class AccountServiceImpl implements AccountService{
 	
-	private static final String URL_HEADER = "http://222.27.196.5/bms/user/";
+	private static final String URL_HEADER = "http://192.168.0.1/bms/user/";
 	
 	public boolean register(UserEntity user) {
 		String URL = URL_HEADER + "add";

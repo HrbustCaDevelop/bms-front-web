@@ -35,18 +35,18 @@
 	<!-- BEGIN LOGIN -->
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="login-form" action="login.php" method="POST">
-			<h3 class="form-title">注册成功！</h3>
+		<form class="login-form" method="POST">
+			<h3 class="form-title">${msg}</h3>
 			<div class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>
 				<span>请输入用户名和密码！</span>
 			</div>
 			
 			<div class="form-actions">
-				<button type="submit" class="btn red pull-left">
+				<button type="button" class="btn red pull-left" onclick="history.go(-1)">
 				返回 <i class="m-icon-swapleft m-icon-white"></i>
 				</button>
-				<button type="submit" class="btn green pull-right">
+				<button type="button" class="btn green pull-right" onclick="window.location.href='index'">
 				登陆 <i class="m-icon-swapright m-icon-white"></i>
 				</button>
 			</div>
