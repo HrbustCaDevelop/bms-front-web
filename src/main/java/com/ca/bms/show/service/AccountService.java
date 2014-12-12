@@ -15,5 +15,12 @@ public interface AccountService {
 	 * 用户登陆
 	 * @param user
 	*/
-	Map<String, Object> login(UserEntity user);
+	public Map<String, Object> login(UserEntity user);
+	
+	/**
+	 * 用户注册
+	 * @param user
+	 * @return
+	*/
+	public boolean register(UserEntity user);
 }

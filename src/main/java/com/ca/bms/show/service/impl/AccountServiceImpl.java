@@ -22,6 +22,26 @@ public class AccountServiceImpl implements AccountService{
 	
 	private static final String URL_HEADER = "http://222.27.196.5/bms/user/";
 	
+	public boolean register(UserEntity user) {
+		String URL = URL_HEADER + "add";
+		Map<String, String> paramsMap = new HashMap<String, String>();
+		paramsMap.put("username", user.getUsername());
+		paramsMap.put("password", user.getPassword());
+		paramsMap.put("nickname", user.getNickname());
+		paramsMap.put("phonenum", user.getPhoneNum());
+		ReturnMsgUserDTO rmud;
+		try {
+			rmud = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap), ReturnMsgUserDTO.class);
+			if (rmud.getReturnmsg().trim().equals(UserStatusEnum.RS.getValue())) {
+				return true;
+			}else {
+				return false;
+			}
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 	public Map<String, Object> login(UserEntity user) {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		String URL = URL_HEADER + "login";
@@ -34,10 +54,6 @@ public class AccountServiceImpl implements AccountService{
 			if (rmud.getReturnmsg().trim().equals(UserStatusEnum.LS.getValue())) {
 				returnMap.put("usertoken", rmud.getUsertoken());
 				returnMap.put("userdata", rmud.getUserdata());
-				
-				
-				
-				
 			}else {
 				return null;
 			}

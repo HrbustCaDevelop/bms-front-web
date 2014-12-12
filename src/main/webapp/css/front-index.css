@@ -1,0 +1,72 @@
+/* General Layout */
+body {
+	font-family: "Microsoft Yahei",Verdana,Simsun,"Segoe UI Web Semibold","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","HelveticaNeue-Medium","Helvetica Neue",Arial,sans-serif;
+}
+
+.yeepay-logo {
+	margin: 0 10px;
+}
+
+.yeepay-logo img{
+	margin-top: 6px;
+}
+
+div.container {
+  /* width: 100%; */
+  margin: 0px auto;
+}
+
+.section-title {
+	margin: 20px 0;
+	font: 900 32px/40px "Microsoft Yahei";
+}
+
+.item-class {
+	padding-top: 20px;
+	margin: 2px 0 20px;
+	font: bold 23px/40px "Microsoft Yahei";
+}
+
+.alert {
+	font-size: 15px;
+}
+
+.dialog.fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.list-item:hover {
+	cursor: pointer;
+}
+
+.form-actions { 
+	padding:20px 10px;margin-top:20px;background-color:#f3f4f5;border-top:1px solid #e5e5e5;*zoom:1;
+}
+
+.form-actions.nobg{
+	background-color:transparent;
+}
+
+.form-actions.top{
+	margin-top:0;margin-bottom:20px;border-top:0;border-bottom:1px solid #e5e5e5;
+}
+
+.form-actions.fluid{
+	padding:20px 0;
+}
+
+.form-actions.fluid > [class^="col-"]{
+	padding-left:13px;
+}
+
+.form-actions:before,.form-actions:after{
+	display:table;line-height:0;content:"";
+}
+
+.form-actions:after{clear:both;}
+
+.item-list {
+	padding: 0px 0px 0px 40px;
+}

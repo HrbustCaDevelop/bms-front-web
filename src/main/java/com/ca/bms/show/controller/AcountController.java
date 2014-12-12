@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,26 +20,36 @@ import com.ca.bms.show.service.AccountService;
  * @version:1.0
  */
 @Controller
-@RequestMapping("/user")
 public class AcountController {
+	
+	@Autowired
 	private AccountService accountService;
 
 	/**
 	 * 跳转到注册页
 	 * @return
 	*/
-	@RequestMapping("/reg.bms")
+	@RequestMapping("/register")
 	public String userRegister() {
-		return "admin/register";
+		return "reg_page";
 	}
 	
 	/**
 	 * 跳转到登陆
 	 * @return
 	*/
-	@RequestMapping("/login.bms")
-	public String userLogin() {
-		return "admin/login";
+	@RequestMapping("/index")
+	public String index() {
+		return "index";
+	}
+	
+	@RequestMapping("/registerc")
+	public String registerc(UserEntity user) {
+		if (accountService.register(user)) {
+			return "index";
+		}else {
+			return null;
+		}
 	}
 	
 	/**
@@ -47,7 +58,7 @@ public class AcountController {
 	 * @param session
 	 * @return
 	*/
-	@RequestMapping("/userlogin.bms")
+	@RequestMapping("/loginc")
 	public String login(UserEntity user,HttpSession session) {
 		Map<String, Object> msgMap = new HashMap<String, Object>();
 		msgMap = accountService.login(user);
