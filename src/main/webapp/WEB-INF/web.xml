@@ -44,6 +44,20 @@
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.woff</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+
+	<!-- 拦截一下错误页面 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/err/404.html</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/err/500.html</location>
+	</error-page>
 
 	<servlet>
 		<servlet-name>springMVC</servlet-name>

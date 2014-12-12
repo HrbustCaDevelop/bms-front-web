@@ -31,7 +31,7 @@ public class AcountController {
 	*/
 	@RequestMapping("/register")
 	public String userRegister() {
-		return "reg_page";
+		return "/account/reg_page";
 	}
 	
 	/**
@@ -47,10 +47,10 @@ public class AcountController {
 	public String registerc(UserEntity user, HttpServletRequest request) {
 		if (accountService.register(user)) {
 			request.setAttribute("msg", "注册成功！");
-			return "account_status";
+			return "/account/account_status";
 		}else {
 			request.setAttribute("msg", "注册失败！");
-			return "account_status";
+			return "/account/account_status";
 		}
 	}
 	
@@ -70,7 +70,7 @@ public class AcountController {
 			return "mainpage";
 		}
 		request.setAttribute("msg", "登陆失败！");
-		return "account_status";
+		return "/account/account_status";
 	}
 
 	//登出
