@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ca.bms.dto.UserDTO;
 import com.ca.bms.entitys.UserEntity;
 import com.ca.bms.show.service.AccountService;
 
@@ -43,11 +44,21 @@ public class AcountController {
 		return "index";
 	}
 
+	/**
+	 * 跳转到个人信息修改
+	 * @return
+	*/
 	@RequestMapping("/password.bms")
 	public String password_page() {
 		return "/account/password";
 	}
 	
+	/**
+	 * 用户注册
+	 * @param user
+	 * @param request
+	 * @return
+	*/
 	@RequestMapping("/register")
 	public String register(UserEntity user, HttpServletRequest request) {
 		if (accountService.register(user)) {
@@ -59,8 +70,22 @@ public class AcountController {
 		}
 	}
 
+	/**
+	 * 用户信息更新
+	 * @param user
+	 * @param request
+	 * @param session
+	 * @return
+	*/
+	@RequestMapping("/update")
 	public String update(UserEntity user, HttpServletRequest request, HttpSession session) {
-		
+		if (accountService.update(session.getAttribute("usertoken").toString(), user)) {
+			request.setAttribute("msg", "更新成功！");
+			return "/account/account_status";
+		}else {
+			request.setAttribute("msg", "更新失败！");
+			return "/account/account_status";
+		}
 	}
 	
 	/**
@@ -76,6 +101,7 @@ public class AcountController {
 		if (null != msgMap) {
 			session.setAttribute("usertoken", msgMap.get("usertoken"));
 			session.setAttribute("userdata", msgMap.get("userdata"));
+			user.setUsername(((UserDTO)msgMap.get("userdata")).toString());
 			session.setAttribute("mysensor", accountService.getSensor(user.getUsername(), msgMap.get("usertoken").toString()));
 			return "/mainframe/mainpage";
 		}

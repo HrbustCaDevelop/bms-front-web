@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<!-- BEGIN PAGE TITLE & BREADCRUMB-->
-			<h3 class="page-title">欢迎使用楼宇防火监控数据平台</h3>
+			<h3 class="page-title">欢迎登陆火灾数据监控平台</h3>
 			<!-- END PAGE TITLE & BREADCRUMB-->
 
 		</div>

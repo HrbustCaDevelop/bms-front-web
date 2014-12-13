@@ -32,5 +32,11 @@ public interface AccountService {
 	*/
 	public List<SensorDTO> getSensor(String username, String usertoken);
 	
-	public boolean update(String username, String usertoken);
+	/**
+	 * 更新用户信息
+	 * @param username
+	 * @param usertoken
+	 * @return
+	*/
+	public boolean update(String usertoken, UserEntity entity);
 }
