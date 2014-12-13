@@ -2,22 +2,18 @@ package com.ca.bms.show.utils;
 
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.CookieStore;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
@@ -37,13 +33,13 @@ import java.util.Map;
  * @since：2014年11月29日 上午10:46:38
  * @version:1.0
  */
-public class HttpClientUtils extends HttpTarget {
+public class HttpClientUtils {
 
 	private final static Logger logger = LoggerFactory
 			.getLogger(HttpClientUtils.class);
 
-	public final static int TIMEOUT = 9000;
-	private static CookieStore cookieStore = null;
+	public final static int TIMEOUT = 900000;
+
 	private static PoolingHttpClientConnectionManager connManager = null;
 	private static CloseableHttpClient httpClient = null;
 
@@ -150,10 +146,6 @@ public class HttpClientUtils extends HttpTarget {
 	}
 
 	public static String doPost(String url, Map<String, String> params) {
-		if (null != cookieStore) {
-			httpClient = HttpClients.custom().setConnectionManager(connManager)
-					.setDefaultCookieStore(cookieStore).build();
-		}
 
 		String responseContent = null;
 
@@ -173,11 +165,6 @@ public class HttpClientUtils extends HttpTarget {
 					Consts.UTF_8));
 
 			CloseableHttpResponse response = httpClient.execute(httpPost);
-			
-			if (null == cookieStore) {
-				setCookieStore(response);
-			}
-			
 			try {
 				// 执行POST请求
 				HttpEntity entity = response.getEntity(); // 获取响应实体
@@ -205,25 +192,6 @@ public class HttpClientUtils extends HttpTarget {
 		}
 		return responseContent;
 
-	}
-
-	public static void setCookieStore(HttpResponse httpResponse) {
-		System.out.println("----setCookieStore");
-		cookieStore = new BasicCookieStore();
-		// JSESSIONID
-		String setCookie = httpResponse.getFirstHeader("Set-Cookie").getValue();
-		String JSESSIONID = setCookie.substring("JSESSIONID=".length(),
-				setCookie.indexOf(";"));
-		System.err.println("-------------");
-		System.err.println("JSESSIONID:" + JSESSIONID);
-		System.err.println("-------------");
-		// 新建一个Cookie
-		BasicClientCookie cookie = new BasicClientCookie("JSESSIONID",
-				JSESSIONID);
-		cookie.setVersion(0);
-		cookie.setDomain(HOSTNAME);
-		cookie.setPath(SERVER_PATH);
-		cookieStore.addCookie(cookie);
 	}
 
 }

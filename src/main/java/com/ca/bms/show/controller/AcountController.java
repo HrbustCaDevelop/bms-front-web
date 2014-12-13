@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ca.bms.dto.UserDTO;
 import com.ca.bms.entitys.UserEntity;
@@ -60,7 +61,17 @@ public class AcountController {
 	 * @return
 	*/
 	@RequestMapping("/register")
-	public String register(UserEntity user, HttpServletRequest request) {
+	public String register(
+			@RequestParam(value="username", required = true)String username,
+			@RequestParam(value="password", required = true)String password,
+			String nickname,
+			String phonenum,
+			HttpServletRequest request) {
+		UserEntity user = new UserEntity();
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setNickname(nickname);
+		user.setPhoneNum(phonenum);
 		if (accountService.register(user)) {
 			request.setAttribute("msg", "注册成功！");
 			return "/account/account_status";
@@ -79,6 +90,7 @@ public class AcountController {
 	*/
 	@RequestMapping("/update")
 	public String update(UserEntity user, HttpServletRequest request, HttpSession session) {
+		user.setUsername(((UserDTO)session.getAttribute("userdata")).getUsername());
 		if (accountService.update(session.getAttribute("usertoken").toString(), user)) {
 			request.setAttribute("msg", "更新成功！");
 			return "/account/account_status";
@@ -95,14 +107,19 @@ public class AcountController {
 	 * @return
 	*/
 	@RequestMapping("/login")
-	public String login(UserEntity user,HttpServletRequest request , HttpSession session) {
+	public String login(
+			@RequestParam(value="username", required = true)String username,
+			@RequestParam(value="password", required = true)String password,
+			HttpServletRequest request , HttpSession session) {
+		UserEntity user = new UserEntity();
+		user.setUsername(username);
+		user.setPassword(password);
 		Map<String, Object> msgMap = new HashMap<String, Object>();
 		msgMap = accountService.login(user);
 		if (null != msgMap) {
 			session.setAttribute("usertoken", msgMap.get("usertoken"));
 			session.setAttribute("userdata", msgMap.get("userdata"));
-			user.setUsername(((UserDTO)msgMap.get("userdata")).toString());
-			session.setAttribute("mysensor", accountService.getSensor(user.getUsername(), msgMap.get("usertoken").toString()));
+			session.setAttribute("mysensor", accountService.getSensor(username, msgMap.get("usertoken").toString()));
 			return "/mainframe/mainpage";
 		}
 		request.setAttribute("msg", "登陆失败！");
