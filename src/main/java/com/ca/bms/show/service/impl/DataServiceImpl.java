@@ -1,8 +1,22 @@
 package com.ca.bms.show.service.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSON;
+import com.ca.bms.dto.SensorDTO;
+import com.ca.bms.dto.SensorDataDTO;
+import com.ca.bms.enumtype.SensorDataStatusEnum;
+import com.ca.bms.enumtype.UserStatusEnum;
+import com.ca.bms.msg.dto.ReturnMsgDataDTO;
+import com.ca.bms.msg.dto.ReturnMsgSensorDTO;
 import com.ca.bms.show.service.DataService;
+import com.ca.bms.show.utils.HttpClientUtils;
+import com.ca.bms.show.utils.HttpTarget;
 
 /**
  * @author：刘志龙
@@ -10,5 +24,27 @@ import com.ca.bms.show.service.DataService;
  * @version:1.0
  */
 @Service("dataService")
-public class DataServiceImpl implements DataService {
+public class DataServiceImpl extends HttpTarget implements DataService {
+
+	@Override
+	public SensorDataDTO realtime(String username, String usertoken,
+			String serialnum) {
+		String URL = HOSTNAME + SERVER_PATH + "sensordata/realtime";
+		Map<String, String> paramsMap = new HashMap<String, String>();
+		paramsMap.put("username", username);
+		paramsMap.put("usertoken", usertoken);
+		paramsMap.put("serialnum", serialnum);
+		ReturnMsgDataDTO rmud;
+		try {
+			rmud = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap),
+					ReturnMsgDataDTO.class);
+			if (rmud.getReturnmsg().trim().equals(SensorDataStatusEnum.DFS.getValue())) {
+				return rmud.getData();
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			return null;
+		}
+	}
 }

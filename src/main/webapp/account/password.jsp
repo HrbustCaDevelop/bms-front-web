@@ -27,19 +27,7 @@
 					<h3 class="panel-title">个人信息修改</h3>
 				</div>
 				<div class="panel-body">
-					<!-- 					<div class="alert alert-success">
-								<button class="close" data-close="alert"></button>
-								<strong>Success!</strong> 密码修改成功!
-							</div>
-							<div class="alert alert-danger">
-								<button class="close" data-close="alert"></button>
-								<strong>Error!</strong> 密码修改失败!
-							</div> -->
 					<form action="update" method="POST" class="form-horizontal">
-						<div class="alert alert-danger display-hide">
-							<button class="close" data-close="alert"></button>
-							<span><strong>Warning!</strong> 新旧密码不一致，请核对后再提交！</span>
-						</div>
 						<div class="form-body">
 							<div class="form-group">
 								<label class="control-label col-md-3">昵称</label>
@@ -52,15 +40,8 @@
 								<label class="control-label col-md-3">新密码<span
 									class="required">*</span></label>
 								<div class="col-md-4">
-									<input type="password" class="form-control" name="pwd" id="pwd">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-3">确认新密码<span
-									class="required">*</span></label>
-								<div class="col-md-4">
-									<input type="password" class="form-control" name="repassword"
-										id="repassword">
+									<input type="password" class="form-control" name="password"
+										id="password">
 								</div>
 							</div>
 							<div class="form-group">

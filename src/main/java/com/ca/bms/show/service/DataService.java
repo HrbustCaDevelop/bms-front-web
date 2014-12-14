@@ -1,5 +1,6 @@
 package com.ca.bms.show.service;
 
+import com.ca.bms.dto.SensorDataDTO;
 
 /**
  * @author：刘志龙
@@ -7,5 +8,9 @@ package com.ca.bms.show.service;
  * @version:1.0
  */
 public interface DataService {
-	
+	/**
+	 * 获取实时数据
+	 * @return
+	*/
+	public SensorDataDTO realtime(String username, String usertoken, String serialnum);
 }
