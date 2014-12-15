@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+</head>
+<!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
 	<!-- BEGIN HEADER -->
@@ -9,9 +11,9 @@
 		<div class="header-inner">
 			<!-- BEGIN LOGO -->
 
-			<a class="navbar-brand" href="index.html"> <img
-				src="images/logo.png" alt="logo" class="img-responsive" />
-			</a>
+			<!-- <a class="navbar-brand" href="#">
+				<img src="images/logo.png" alt="logo" class="img-responsive" />
+			</a> -->
 
 			<!-- END LOGO -->
 			<!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -64,7 +66,7 @@
 				</a> <c:if test="${!empty mysensor}">
 						<ul class="sub-menu">
 							<c:forEach items="${mysensor}" var="sensor">
-								<li><a href="realtime.bms?serialnum=${sensor.serialNum}">${sensor.sensorType}</a></li>
+								<li><a href="javascript:window.location.href='realtime.bms?serialnum=${sensor.serialNum}'">${sensor.sensorType}</a></li>
 							</c:forEach>
 						</ul>
 					</c:if></li>

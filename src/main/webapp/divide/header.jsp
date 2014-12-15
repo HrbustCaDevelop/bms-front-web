@@ -40,5 +40,4 @@
 <link href="css/custom.css" rel="stylesheet" type="text/css" />
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico" />
-</head>
-<!-- END HEAD -->
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
