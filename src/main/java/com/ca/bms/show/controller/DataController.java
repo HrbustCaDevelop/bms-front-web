@@ -41,7 +41,7 @@ public class DataController {
 
 		StringBuilder message = new StringBuilder("");
         message.append("{\"point\":");
-        message.append("{\"temperature\":"+"\""+data.getTemperature()+"\""+","+"\"co\""+":"+"\""+data.getCo()+"\""+","+"\"flash\""+":"+"\""+data.getSmoke()+"\""+","+"\"nowtime\""+":"+"\""+data.getModifyTime()+"\""+"}}");
+        message.append("{\"temperature\":"+"\""+data.getTemperature()+"\""+","+"\"co\""+":"+"\""+data.getCo()+"\""+","+"\"flash\""+":"+"\""+data.getSmoke()+"\""+"}}");
         System.out.println(message);
         return message.toString();
 	}
