@@ -4,6 +4,30 @@
 
 <%@ include file="/divide/header.jsp"%>
 
+<script type="text/javascript">
+	function updatemsg() {
+		alert('fuck');
+		
+		$.ajax({
+		      type: "post",
+		      url: "update",    
+		      data: { nickname : updateMsg.nickname.value, password : updateMsg.password.value, phoneNum : updateMsg.phoneNum.value },
+		      dataType: "json",
+		      success : function(data){
+		    	  $.each(data,function(){
+		    			if (data.msg == 1) {
+		    				$("#msgSUCC").show();
+		    				$("#msgFAIL").hide();
+		    			}else {
+		    				$("#msgSUCC").hide();
+		    				$("#msgFAIL").show();
+		    			}
+				  });
+		      }
+		});
+	}
+</script>
+
 <%@ include file="/divide/left.jsp"%>
 
 <!--  BEGIN PAGE -->
@@ -27,7 +51,17 @@
 					<h3 class="panel-title">个人信息修改</h3>
 				</div>
 				<div class="panel-body">
-					<form action="update" method="POST" class="form-horizontal">
+
+					<div id="msgSUCC" class="alert alert-success" hidden="true">
+						<button class="close" data-close="alert"></button>
+						<strong>Success!</strong> 更新成功!
+					</div>
+					<div id="msgFAIL" class="alert alert-danger" hidden="true">
+						<button class="close" data-close="alert"></button>
+						<strong>Error!</strong> 更新失败!
+					</div>
+
+					<form class="form-horizontal" name="updateMsg" id="updateMsg">
 						<div class="form-body">
 							<div class="form-group">
 								<label class="control-label col-md-3">昵称</label>
@@ -54,10 +88,10 @@
 						</div>
 						<div class="form-actions fluid">
 							<div class="col-md-offset-3 col-md-9">
-								<button type="submit" class="btn red">
+								<button type="button" class="btn red" onclick="updatemsg()">
 									<i class="fa fa-check"></i> 保存
 								</button>
-								<button type="button" class="btn default red-stripe">
+								<button type="reset" class="btn default red-stripe">
 									<i class="fa fa-edit"></i> 重置
 								</button>
 							</div>
