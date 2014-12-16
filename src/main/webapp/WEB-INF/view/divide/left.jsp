@@ -32,7 +32,7 @@
 						class="fa fa-angle-down"></i>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="password.bms"><i
+						<li><a href="update.bms"><i
 								class="fa fa-user"></i> 修改个人信息</a></li>
 						<li><a href="javascript:;" id="trigger_fullscreen"><i
 								class="fa fa-move"></i> 全屏显示</a></li>

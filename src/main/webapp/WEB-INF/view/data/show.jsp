@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="/divide/header.jsp"%>
+<%@ include file="/WEB-INF/view/divide/header.jsp"%>
 
 <script type="text/javascript">
 $(function () {
@@ -30,19 +30,17 @@ $(function () {
                       	   	  data: { serialnum : "${serialnum}" },
                       	      dataType: "json",
                       	      success : function(data){
-                      	    	  $.each(data,function(){
-                      	    			var x = (new Date()).getTime();
-                      	    		  	var y = parseInt(data.point.temperature);
-                      	    			var z = parseInt(data.point.co);
-                      	    			var q = parseInt(data.point.flash);
-		                            	series.addPoint([x, y], false, true);
-		                            	series2.addPoint([x, z], true, true);
-		                            	series3.addPoint([x, q], true, true);
-                    				});
+	                      	    	var x = (new Date()).getTime();
+	              	    		  	var y = parseInt(data.temperature);
+	              	    			var z = parseInt(data.co);
+	              	    			var q = parseInt(data.smoke);
+	                            	series.addPoint([x, y], false, true);
+	                            	series2.addPoint([x, z], true, true);
+	                            	series3.addPoint([x, q], true, true);
                       	      }
                       	    });
                         	
-                        }, 10000);
+                        }, 7000);
                     }
                 }
             },
@@ -132,7 +130,7 @@ $(function () {
 <script src="js/highcharts.js"></script>
 <script src="js/modules/exporting.js"></script>
 
-<%@ include file="/divide/left.jsp"%>
+<%@ include file="/WEB-INF/view/divide/left.jsp"%>
 
 <!-- BEGIN PAGE -->
 <div class="page-content">
@@ -169,7 +167,7 @@ $(function () {
 </div>
 <!-- END CONTAINER -->
 
-<%@ include file="/divide/footer.jsp"%>
+<%@ include file="/WEB-INF/view/divide/footer.jsp"%>
 
 </body>
 <!-- END BODY -->

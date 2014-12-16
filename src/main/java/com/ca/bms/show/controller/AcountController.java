@@ -35,7 +35,7 @@ public class AcountController {
 	*/
 	@RequestMapping("/register.bms")
 	public String register_page() {
-		return "/account/register";
+		return "/view/account/register";
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class AcountController {
 	*/
 	@RequestMapping("/main.bms")
 	public String main_page() {
-		return "/mainframe/mainpage";
+		return "/view/main";
 	}
 	
 	/**
@@ -61,9 +61,9 @@ public class AcountController {
 	 * @return
 	*/
 	@AuthPass
-	@RequestMapping("/password.bms")
+	@RequestMapping("/update.bms")
 	public String password_page() {
-		return "/account/password";
+		return "/view/account/update";
 	}
 	
 	/**

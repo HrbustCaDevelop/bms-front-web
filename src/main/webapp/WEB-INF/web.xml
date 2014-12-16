@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>/WEB-INF/index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
@@ -52,11 +52,11 @@
 	<!-- 拦截一下错误页面 -->
 	<error-page>
 		<error-code>404</error-code>
-		<location>/err/404.html</location>
+		<location>/WEB-INF/view/err/404.html</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/err/500.html</location>
+		<location>/WEB-INF/view/err/500.html</location>
 	</error-page>
 
 	<servlet>

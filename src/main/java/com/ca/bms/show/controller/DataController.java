@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import com.ca.bms.dto.SensorDataDTO;
 import com.ca.bms.dto.UserDTO;
 import com.ca.bms.show.annotation.AuthPass;
@@ -23,6 +25,9 @@ import com.ca.bms.show.service.DataService;
 @Controller
 public class DataController {
 
+	private static SimplePropertyPreFilter dataFilter = new SimplePropertyPreFilter(
+			SensorDataDTO.class, "temperature", "co", "smoke");
+	
 	@Autowired
 	DataService dataService;
 
@@ -36,7 +41,7 @@ public class DataController {
 	@RequestMapping("/realtime.bms")
 	public String realtime_page(String id, HttpServletRequest request) {
 		request.setAttribute("serialnum", id);
-		return "/data/show";
+		return "/view/data/show";
 	}
 
 	/**
@@ -54,11 +59,10 @@ public class DataController {
 				((UserDTO)session.getAttribute("userdata")).getUsername(), 
 				session.getAttribute("usertoken").toString(),
 				serialnum);
-
-		StringBuilder message = new StringBuilder("");
-        message.append("{\"point\":");
-        message.append("{\"temperature\":"+"\""+data.getTemperature()+"\""+","+"\"co\""+":"+"\""+data.getCo()+"\""+","+"\"flash\""+":"+"\""+data.getSmoke()+"\""+"}}");
-        System.out.println(message);
-        return message.toString();
+//		StringBuilder message = new StringBuilder("");
+//        message.append("{\"point\":");
+//        message.append("{\"temperature\":"+"\""+data.getTemperature()+"\""+","+"\"co\""+":"+"\""+data.getCo()+"\""+","+"\"flash\""+":"+"\""+data.getSmoke()+"\""+"}}");
+		String returnMsgString = JSON.toJSONString(data, dataFilter); 
+        return returnMsgString;
 	}
 }

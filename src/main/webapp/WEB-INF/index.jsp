@@ -66,7 +66,7 @@
 			
 			<div id="msgSUCC" class="alert alert-success display-hide">
 				<button class="close" data-close="alert"></button>
-				<strong>Success!</strong> 登陆成功!
+				<strong>Success!</strong> 登陆成功!跳转中。。。
 			</div>
 			<div id="msgFAIL" class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>

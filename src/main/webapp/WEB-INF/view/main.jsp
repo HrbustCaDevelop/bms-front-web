@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.ca.bms.dto.SensorDTO"%>
 
-<%@ include file="/divide/header.jsp"%>
+<%@ include file="/WEB-INF/view/divide/header.jsp"%>
 
-<%@ include file="/divide/left.jsp"%>
+<%@ include file="/WEB-INF/view/divide/left.jsp"%>
 
 <!-- BEGIN PAGE -->
 <div class="page-content">
@@ -24,7 +24,7 @@
 </div>
 <!-- END CONTAINER -->
 
-<%@ include file="/divide/footer.jsp"%>
+<%@ include file="/WEB-INF/view/divide/footer.jsp"%>
 
 </body>
 <!-- END BODY -->

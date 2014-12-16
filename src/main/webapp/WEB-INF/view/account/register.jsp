@@ -26,28 +26,39 @@
 	
 <script type="text/javascript">
 	function checkusername() {
-		$.ajax({
-		      type: "post",
-		      url: "checkusername",    
-		      data: { username : regform.username.value },
-		      dataType: "json",
-		      success : function(data){
-		    	  $.each(data,function(){
-		    			if (data.msg == 1) {
-		    				$("#checkFAIL").hide();
-		    				$("#checkSUCC").show();
-		    				$("#regcommit").show();
-		    			}else {
-		    				$("#checkFAIL").show();
-		    				$("#checkSUCC").hide();
-		    				$("#regcommit").hide();
-		    			}
-				  });
-		      }
-		});
+		if (regform.username.value == "") {
+			$("#paraminvide").show();
+			return;
+		} else {
+			$("#paraminvide").hide();
+			$.ajax({
+			      type: "post",
+			      url: "checkusername",    
+			      data: { username : regform.username.value },
+			      dataType: "json",
+			      success : function(data){
+			    	  $.each(data,function(){
+			    			if (data.msg == 1) {
+			    				$("#checkFAIL").hide();
+			    				$("#checkSUCC").show();
+			    				$("#regcommit").show();
+			    			}else {
+			    				$("#checkFAIL").show();
+			    				$("#checkSUCC").hide();
+			    				$("#regcommit").hide();
+			    			}
+					  });
+			      }
+			});	
+		}
 	}
 	
 	function register() {
+		if (regform.password.value == "") {
+			$("#paraminvide").show();
+			return;
+		}
+		$("#paraminvide").hide();
 		$("#regcommit").hide();
 		$("#checkFAIL").hide();
 		$("#checkSUCC").hide();
@@ -85,7 +96,7 @@
 		<!-- BEGIN LOGIN FORM -->
 		<form class="login-form" name="regform" method="POST">
 			<h3 class="form-title">新用户注册</h3>
-			<div class="alert alert-danger display-hide">
+			<div id="paraminvide" class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>
 				<span>请输入用户名和密码！</span>
 			</div>
@@ -102,7 +113,7 @@
 			
 			<div id="regSUCC" class="alert alert-success display-hide">
 				<button class="close" data-close="alert"></button>
-				<span>注册成功！</span>
+				<span>注册成功！跳转中。。。</span>
 			</div>
 			
 			<div id="regFAIL" class="alert alert-danger display-hide">
@@ -113,9 +124,12 @@
 			<div class="form-group">
 				<div class="input-icon">
 					<i class="fa fa-user"></i>
-					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="username" onblur="checkusername()"/>
+					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" id="username" name="username" onblur="checkusername()"/>
 				</div>
 			</div>
+			<script type="text/javascript">
+				document.getElementById("username").focus();
+			</script>
 			<div class="form-group">
 				<div class="input-icon">
 					<i class="fa fa-lock"></i>

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.ca.bms.dto.SensorDTO"%>
 
-<%@ include file="/divide/header.jsp"%>
+<%@ include file="/WEB-INF/view/divide/header.jsp"%>
 
 <script type="text/javascript">
 	function updatemsg() {
@@ -17,7 +17,7 @@
 		    			if (data.msg == 1) {
 		    				$("#msgSUCC").show();
 		    				$("#msgFAIL").hide();
-		    				setTimeout("window.location='index.bms'",1000);
+		    				setTimeout("window.location='index.bms'",2000);
 		    			}else {
 		    				$("#updatecommit").show();
 		    				$("#msgSUCC").hide();
@@ -29,7 +29,7 @@
 	}
 </script>
 
-<%@ include file="/divide/left.jsp"%>
+<%@ include file="/WEB-INF/view/divide/left.jsp"%>
 
 <!--  BEGIN PAGE -->
 <div class="page-content">
@@ -55,7 +55,7 @@
 
 					<div id="msgSUCC" class="alert alert-success display-hide">
 						<button class="close" data-close="alert"></button>
-						<strong>Success!</strong> 更新成功!
+						<strong>Success!</strong> 更新成功!跳转到登陆页。。。
 					</div>
 					<div id="msgFAIL" class="alert alert-danger display-hide">
 						<button class="close" data-close="alert"></button>
@@ -109,7 +109,7 @@
 </div>
 <!-- END CONTAINER -->
 
-<%@ include file="/divide/footer.jsp"%>
+<%@ include file="/WEB-INF/view/divide/footer.jsp"%>
 
 </body>
 <!-- END BODY -->
