@@ -69,34 +69,30 @@ public class AcountController {
 	/**
 	 * 用户注册
 	 * @param user
-	 * @param request
 	 * @return
 	*/
 	@RequestMapping("/register")
+	@ResponseBody
 	public String register(
 			@RequestParam(value="username", required = true)String username,
 			@RequestParam(value="password", required = true)String password,
 			String nickname,
-			String phonenum,
-			HttpServletRequest request) {
+			String phonenum) {
 		UserEntity user = new UserEntity();
 		user.setUsername(username);
 		user.setPassword(password);
 		user.setNickname(nickname);
 		user.setPhoneNum(phonenum);
 		if (accountService.register(user)) {
-			request.setAttribute("msg", "注册成功！");
-			return "/account/account_status";
+			return "{\"msg\" : 1}";
 		}else {
-			request.setAttribute("msg", "注册失败！");
-			return "/account/account_status";
+			return "{\"msg\" : 0}";
 		}
 	}
 
 	/**
 	 * 用户信息更新
 	 * @param user
-	 * @param request
 	 * @param session
 	 * @return
 	*/
@@ -138,6 +134,21 @@ public class AcountController {
 		return "{\"msg\" : 0}";
 	}
 
+	/**
+	 * 检查用户名是否重复
+	 * @param username
+	 * @return
+	*/
+	@RequestMapping("/checkusername")
+	@ResponseBody
+	public String checkusername(String username) {
+		if (accountService.checkusername(username)) {
+			return "{\"msg\" : 1}";
+		}else {
+			return "{\"msg\" : 0}";
+		}
+	}
+	
 	/**
 	 * 用户登出
 	 * @param request

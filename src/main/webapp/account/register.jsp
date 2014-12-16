@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<!--[if IE 8]> <html class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!--> <html class="no-js"> <!--<![endif]-->
+ <html class="no-js"> 
 <!-- BEGIN HEAD -->
 <head>
 	<meta charset="utf-8" />
@@ -25,6 +23,55 @@
 	<link href="css/custom.css" rel="stylesheet" type="text/css"/>
 	<!-- END THEME STYLES -->
 	<link rel="shortcut icon" href="favicon.ico" />
+	
+<script type="text/javascript">
+	function checkusername() {
+		$.ajax({
+		      type: "post",
+		      url: "checkusername",    
+		      data: { username : regform.username.value },
+		      dataType: "json",
+		      success : function(data){
+		    	  $.each(data,function(){
+		    			if (data.msg == 1) {
+		    				$("#checkFAIL").hide();
+		    				$("#checkSUCC").show();
+		    				$("#regcommit").show();
+		    			}else {
+		    				$("#checkFAIL").show();
+		    				$("#checkSUCC").hide();
+		    				$("#regcommit").hide();
+		    			}
+				  });
+		      }
+		});
+	}
+	
+	function register() {
+		$("#checkFAIL").hide();
+		$("#checkSUCC").hide();
+		$.ajax({
+		      type: "post",
+		      url: "register",    
+		      data: { username : regform.username.value, password : regform.password.value, nickname : regform.nickname.value, phonenum : regform.phonenum.value },
+		      dataType: "json",
+		      success : function(data){
+		    	  $.each(data,function(){
+		    			if (data.msg == 1) {
+		    				$("#regFAIL").hide();
+		    				$("#regSUCC").show();
+		    				$("#regcommit").show();
+		    				 window.location="index.bms";
+		    			}else {
+		    				$("#regFAIL").show();
+		    				$("#regSUCC").hide();
+		    			}
+				  });
+		      }
+		});
+	}
+</script>
+	
 </head>
 <!-- BEGIN BODY -->
 <body class="login">
@@ -35,17 +82,37 @@
 	<!-- BEGIN LOGIN -->
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="login-form" action="register" method="POST">
+		<form class="login-form" name="regform" method="POST">
 			<h3 class="form-title">新用户注册</h3>
 			<div class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>
 				<span>请输入用户名和密码！</span>
 			</div>
+			
+			<div id="checkSUCC" class="alert alert-success display-hide">
+				<button class="close" data-close="alert"></button>
+				<span>该用户名可以使用</span>
+			</div>
+			
+			<div id="checkFAIL" class="alert alert-danger display-hide">
+				<button class="close" data-close="alert"></button>
+				<span>该用户名已经被注册</span>
+			</div>
+			
+			<div id="regSUCC" class="alert alert-success display-hide">
+				<button class="close" data-close="alert"></button>
+				<span>注册成功！</span>
+			</div>
+			
+			<div id="regFAIL" class="alert alert-danger display-hide">
+				<button class="close" data-close="alert"></button>
+				<span>注册失败！</span>
+			</div>
+			
 			<div class="form-group">
-				<!--ie8 和 ie9 不支持 html5 placeholder 属性，为了兼容我们只好写入js脚本防止冲突-->
 				<div class="input-icon">
 					<i class="fa fa-user"></i>
-					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="username"/>
+					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="username" onblur="checkusername()"/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -66,8 +133,8 @@
 					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="手机号" name="phonenum"/>
 				</div>
 			</div>
-			<div class="form-actions">
-				<button type="submit" class="btn green pull-right">
+			<div id="regcommit" class="form-actions display-hide">
+				<button type="button" class="btn green pull-right" onclick="register()">
 				注册 <i class="m-icon-swapright m-icon-white"></i>
 				</button>
 			</div>

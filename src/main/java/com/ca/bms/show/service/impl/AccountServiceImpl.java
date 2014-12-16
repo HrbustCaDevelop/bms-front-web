@@ -114,4 +114,23 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 		}
 	}
 
+	@Override
+	public boolean checkusername(String username) {
+		String URL = HOSTNAME + SERVER_PATH + "user/checkusername";
+		Map<String, String> paramsMap = new HashMap<String, String>();
+		paramsMap.put("username", username);
+		ReturnMsgDTO rmud;
+		try {
+			rmud = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap),
+					ReturnMsgDTO.class);
+			if (rmud.getReturnmsg().trim().equals(UserStatusEnum.ACBU.getValue())) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 }

@@ -38,7 +38,7 @@
 		    			if (data.msg == 1) {
 		    				$("#msgSUCC").show();
 		    				$("#msgFAIL").hide();
-		    				 window.location="main.bms";
+		    				window.location="main.bms";
 		    			}else {
 		    				$("#msgSUCC").hide();
 		    				$("#msgFAIL").show();
@@ -62,13 +62,13 @@
 		<form class="login-form" name="loginform" id="loginform" method="POST">
 			<h3 class="form-title">楼宇防火监测平台登陆</h3>
 			
-			<div id="msgSUCC" class="alert alert-success" hidden="true">
+			<div id="msgSUCC" class="alert alert-success display-hide">
 				<button class="close" data-close="alert"></button>
 				<strong>Success!</strong> 登陆成功!
 			</div>
-			<div id="msgFAIL" class="alert alert-danger" hidden="true">
+			<div id="msgFAIL" class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>
-				<strong>Error!</strong> 登陆失败!
+				<strong>Error!</strong> 用户名或密码错误!
 			</div>
 
 			<div class="form-group">

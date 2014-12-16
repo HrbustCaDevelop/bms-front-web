@@ -6,8 +6,6 @@
 
 <script type="text/javascript">
 	function updatemsg() {
-		alert('fuck');
-		
 		$.ajax({
 		      type: "post",
 		      url: "update",    
@@ -52,11 +50,11 @@
 				</div>
 				<div class="panel-body">
 
-					<div id="msgSUCC" class="alert alert-success" hidden="true">
+					<div id="msgSUCC" class="alert alert-success display-hide">
 						<button class="close" data-close="alert"></button>
 						<strong>Success!</strong> 更新成功!
 					</div>
-					<div id="msgFAIL" class="alert alert-danger" hidden="true">
+					<div id="msgFAIL" class="alert alert-danger display-hide">
 						<button class="close" data-close="alert"></button>
 						<strong>Error!</strong> 更新失败!
 					</div>

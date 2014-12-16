@@ -34,8 +34,8 @@ public class DataController {
 	*/
 	@AuthPass
 	@RequestMapping("/realtime.bms")
-	public String realtime_page(String serialnum, HttpServletRequest request) {
-		request.setAttribute("serialnum", serialnum);
+	public String realtime_page(String id, HttpServletRequest request) {
+		request.setAttribute("serialnum", id);
 		return "/data/show";
 	}
 
