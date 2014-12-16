@@ -25,6 +25,30 @@
 	<link href="css/custom.css" rel="stylesheet" type="text/css"/>
 	<!-- END THEME STYLES -->
 	<link rel="shortcut icon" href="favicon.ico" />
+	
+<script type="text/javascript">
+	function login() {
+		$.ajax({
+		      type: "post",
+		      url: "login",    
+		      data: { username : loginform.username.value, password : loginform.password.value },
+		      dataType: "json",
+		      success : function(data){
+		    	  $.each(data,function(){
+		    			if (data.msg == 1) {
+		    				$("#msgSUCC").show();
+		    				$("#msgFAIL").hide();
+		    				 window.location="main.bms";
+		    			}else {
+		    				$("#msgSUCC").hide();
+		    				$("#msgFAIL").show();
+		    			}
+				  });
+		      }
+		});
+	}
+</script>
+	
 </head>
 <!-- BEGIN BODY -->
 <body class="login">
@@ -35,14 +59,19 @@
 	<!-- BEGIN LOGIN -->
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="login-form" action="login" method="POST">
+		<form class="login-form" name="loginform" id="loginform" method="POST">
 			<h3 class="form-title">楼宇防火监测平台登陆</h3>
-			<div class="alert alert-danger display-hide">
+			
+			<div id="msgSUCC" class="alert alert-success" hidden="true">
 				<button class="close" data-close="alert"></button>
-				<span>请输入用户名和密码！</span>
+				<strong>Success!</strong> 登陆成功!
 			</div>
+			<div id="msgFAIL" class="alert alert-danger" hidden="true">
+				<button class="close" data-close="alert"></button>
+				<strong>Error!</strong> 登陆失败!
+			</div>
+
 			<div class="form-group">
-				<!--ie8 和 ie9 不支持 html5 placeholder 属性，为了兼容我们只好写入js脚本防止冲突-->
 				<div class="input-icon">
 					<i class="fa fa-user"></i>
 					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="username"/>
@@ -61,7 +90,7 @@
 				<label class="checkbox">
 					<a href="register.bms">点我注册</a>
 				</label>
-				<button type="submit" class="btn green pull-right">
+				<button type="button" class="btn green pull-right" onclick="login()">
 				登陆 <i class="m-icon-swapright m-icon-white"></i>
 				</button>
 			</div>
