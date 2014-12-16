@@ -16,6 +16,7 @@
 		    			if (data.msg == 1) {
 		    				$("#msgSUCC").show();
 		    				$("#msgFAIL").hide();
+		    				setTimeout("window.location='index.bms'",1000);
 		    			}else {
 		    				$("#msgSUCC").hide();
 		    				$("#msgFAIL").show();

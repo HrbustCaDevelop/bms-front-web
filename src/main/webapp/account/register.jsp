@@ -61,7 +61,7 @@
 		    				$("#regFAIL").hide();
 		    				$("#regSUCC").show();
 		    				$("#regcommit").show();
-		    				 window.location="index.bms";
+		    				setTimeout("window.location='index.bms'",1000);
 		    			}else {
 		    				$("#regFAIL").show();
 		    				$("#regSUCC").hide();
