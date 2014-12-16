@@ -66,7 +66,7 @@
 				</a> <c:if test="${!empty mysensor}">
 						<ul class="sub-menu">
 							<c:forEach items="${mysensor}" var="sensor">
-								<li><a href="javascript:window.location.href='realtime.bms?serialnum=${sensor.serialNum}'">${sensor.sensorType}</a></li>
+								<li><a href="realtime.bms?serialnum=${sensor.serialNum}">${sensor.sensorType}</a></li>
 							</c:forEach>
 						</ul>
 					</c:if></li>

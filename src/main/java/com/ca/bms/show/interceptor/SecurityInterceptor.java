@@ -1,5 +1,6 @@
 package com.ca.bms.show.interceptor;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -8,7 +9,6 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ca.bms.enumtype.UserStatusEnum;
 import com.ca.bms.show.annotation.AuthPass;
 
 /**
@@ -24,15 +24,11 @@ public class SecurityInterceptor implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest arg0,
 			HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
 			Object arg2, ModelAndView arg3) throws Exception {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -46,26 +42,16 @@ public class SecurityInterceptor implements HandlerInterceptor {
 				return true;
 			else {
 				HttpSession session = request.getSession();
-				Object username = request.getParameter("username");
-				Object usertoken = request.getParameter("usertoken");
-				Object jusername = session.getAttribute("username");
-				Object jusertoken = session.getAttribute("usertoken");
-				if (username != null && usertoken != null && jusername != null
-						&& jusertoken != null) {
-					if (jusername.equals(username) && jusertoken.equals(usertoken)) {
-						flag = true;
-					}
+				Object usertoken = session.getAttribute("usertoken");
+				if (usertoken != null) {
+					flag = true;
 				}
 				if (flag) {
 					return true;
 				} else {
-					response.setCharacterEncoding("UTF-8");
-					response.setContentType("text/html");
-					StringBuilder regMsg = new StringBuilder(
-							"{\"returnmsg\":\"");
-					regMsg.append(UserStatusEnum.UINI.getValue());
-					regMsg.append("\"}");
-					response.getWriter().write(regMsg.toString());
+					response.setContentType("text/html; charset=UTF-8");
+					RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+					rd.forward(request, response);
 					return false;
 				}
 			}

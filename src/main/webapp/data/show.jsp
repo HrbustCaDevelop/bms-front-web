@@ -26,7 +26,8 @@ $(function () {
                         setInterval(function() {
                         	$.ajax({
                       	      type: "post",
-                      	      url: "realtime?serialnum=${serialnum}",    
+                      	      url: "realtime",
+                      	   	  data: { serialnum : "${serialnum}" },
                       	      dataType: "json",
                       	      success : function(data){
                       	    	  $.each(data,function(){
