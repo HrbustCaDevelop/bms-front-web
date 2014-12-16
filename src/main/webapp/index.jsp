@@ -28,6 +28,7 @@
 	
 <script type="text/javascript">
 	function login() {
+		$("#logincommit").hide();
 		$.ajax({
 		      type: "post",
 		      url: "login",    
@@ -40,6 +41,7 @@
 		    				$("#msgFAIL").hide();
 		    				setTimeout("window.location='main.bms'",1000);
 		    			}else {
+		    				$("#logincommit").show();
 		    				$("#msgSUCC").hide();
 		    				$("#msgFAIL").show();
 		    			}
@@ -83,7 +85,7 @@
 					<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password"/>
 				</div>
 			</div>
-			<div class="form-actions">
+			<div id="logincommit" class="form-actions">
 				<label class="checkbox">
 					<input type="checkbox" name="remember" value="1"/> 记住密码
 				</label>

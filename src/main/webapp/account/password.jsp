@@ -6,6 +6,7 @@
 
 <script type="text/javascript">
 	function updatemsg() {
+		$("#updatecommit").hide();
 		$.ajax({
 		      type: "post",
 		      url: "update",    
@@ -18,6 +19,7 @@
 		    				$("#msgFAIL").hide();
 		    				setTimeout("window.location='index.bms'",1000);
 		    			}else {
+		    				$("#updatecommit").show();
 		    				$("#msgSUCC").hide();
 		    				$("#msgFAIL").show();
 		    			}
@@ -85,7 +87,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-actions fluid">
+						<div id="updatecommit" class="form-actions fluid">
 							<div class="col-md-offset-3 col-md-9">
 								<button type="button" class="btn red" onclick="updatemsg()">
 									<i class="fa fa-check"></i> 保存

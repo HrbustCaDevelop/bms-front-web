@@ -48,6 +48,7 @@
 	}
 	
 	function register() {
+		$("#regcommit").hide();
 		$("#checkFAIL").hide();
 		$("#checkSUCC").hide();
 		$.ajax({
@@ -60,9 +61,9 @@
 		    			if (data.msg == 1) {
 		    				$("#regFAIL").hide();
 		    				$("#regSUCC").show();
-		    				$("#regcommit").show();
 		    				setTimeout("window.location='index.bms'",1000);
 		    			}else {
+		    				$("#regcommit").show();
 		    				$("#regFAIL").show();
 		    				$("#regSUCC").hide();
 		    			}
