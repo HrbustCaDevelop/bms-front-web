@@ -46,6 +46,16 @@ public class DataController {
 	}
 
 	/**
+	 * 列出传感器
+	 * @return
+	*/
+	@AuthPass
+	@RequestMapping("/listsensor.bms")
+	public String listsensor_page() {
+		return "/view/sensor/list";
+	}
+	
+	/**
 	 * 获取实时数据
 	 * @param serialnum
 	 * @param request

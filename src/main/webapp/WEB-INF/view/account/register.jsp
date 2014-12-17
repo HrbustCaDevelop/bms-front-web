@@ -72,7 +72,7 @@
 		    			if (data.msg == 1) {
 		    				$("#regFAIL").hide();
 		    				$("#regSUCC").show();
-		    				setTimeout("window.location='index.bms'",1000);
+		    				setTimeout("window.location='index.bms'",3000);
 		    			}else {
 		    				$("#regcommit").show();
 		    				$("#regFAIL").show();
@@ -113,7 +113,7 @@
 			
 			<div id="regSUCC" class="alert alert-success display-hide">
 				<button class="close" data-close="alert"></button>
-				<span>注册成功！跳转中。。。</span>
+				<span>注册成功！跳转中</span>
 			</div>
 			
 			<div id="regFAIL" class="alert alert-danger display-hide">

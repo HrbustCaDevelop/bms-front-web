@@ -17,7 +17,7 @@
 		    			if (data.msg == 1) {
 		    				$("#msgSUCC").show();
 		    				$("#msgFAIL").hide();
-		    				setTimeout("window.location='index.bms'",2000);
+		    				setTimeout("window.location='index.bms'",3000);
 		    			}else {
 		    				$("#updatecommit").show();
 		    				$("#msgSUCC").hide();
@@ -55,7 +55,7 @@
 
 					<div id="msgSUCC" class="alert alert-success display-hide">
 						<button class="close" data-close="alert"></button>
-						<strong>Success!</strong> 更新成功!跳转到登陆页。。。
+						<strong>Success!</strong> 更新成功!跳转到登陆页
 					</div>
 					<div id="msgFAIL" class="alert alert-danger display-hide">
 						<button class="close" data-close="alert"></button>

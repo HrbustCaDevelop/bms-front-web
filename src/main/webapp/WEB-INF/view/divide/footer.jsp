@@ -10,13 +10,7 @@
 	</div>
 </div>
 <!-- END FOOTER -->
-<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
-<!--[if lt IE 9]>
-	<script src="plugins/respond.min.js"></script>
-	<script src="plugins/excanvas.min.js"></script> 
-	<![endif]-->
-<!-- <script src="plugins/jquery-1.10.2.min.js" type="text/javascript"></script> -->
 <script src="plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
 <script src="plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"

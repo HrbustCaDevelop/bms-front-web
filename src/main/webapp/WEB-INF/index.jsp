@@ -39,7 +39,7 @@
 		    			if (data.msg == 1) {
 		    				$("#msgSUCC").show();
 		    				$("#msgFAIL").hide();
-		    				setTimeout("window.location='main.bms'",1000);
+		    				setTimeout("window.location='main.bms'",3000);
 		    			}else {
 		    				$("#logincommit").show();
 		    				$("#msgSUCC").hide();
@@ -66,7 +66,7 @@
 			
 			<div id="msgSUCC" class="alert alert-success display-hide">
 				<button class="close" data-close="alert"></button>
-				<strong>Success!</strong> 登陆成功!跳转中。。。
+				<strong>Success!</strong> 登陆成功!跳转中
 			</div>
 			<div id="msgFAIL" class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>

@@ -84,7 +84,7 @@
 				</a>
 					<ul class="sub-menu">
 						<li><a href="regsensor.bms">绑定设备</a></li>
-						<li><a href="#">托管设备浏览</a></li>
+						<li><a href="listsensor.bms">托管设备浏览</a></li>
 					</ul></li>
 			</ul>
 			<!-- END SIDEBAR MENU -->
