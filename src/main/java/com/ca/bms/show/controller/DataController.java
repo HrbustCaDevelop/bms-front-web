@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
@@ -52,17 +53,13 @@ public class DataController {
 	 * @return
 	*/
 	@AuthPass
-	@RequestMapping("/realtime")
+	@RequestMapping(value = "/realtime", produces = "text/html;charset=UTF-8", method = RequestMethod.POST)
 	@ResponseBody
 	public String realtime(String serialnum, HttpServletRequest request, HttpSession session) {
 		SensorDataDTO data = dataService.realtime(
 				((UserDTO)session.getAttribute("userdata")).getUsername(), 
 				session.getAttribute("usertoken").toString(),
 				serialnum);
-//		StringBuilder message = new StringBuilder("");
-//        message.append("{\"point\":");
-//        message.append("{\"temperature\":"+"\""+data.getTemperature()+"\""+","+"\"co\""+":"+"\""+data.getCo()+"\""+","+"\"flash\""+":"+"\""+data.getSmoke()+"\""+"}}");
-		String returnMsgString = JSON.toJSONString(data, dataFilter); 
-        return returnMsgString;
+        return JSON.toJSONString(data, dataFilter); 
 	}
 }

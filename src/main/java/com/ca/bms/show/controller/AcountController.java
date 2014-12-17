@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -47,6 +48,11 @@ public class AcountController {
 		return "index";
 	}
 
+	@RequestMapping("/regsensor.bms")
+	public String regsensor_page() {
+		return "/view/sensor/add";
+	}
+	
 	/**
 	 * 跳转到主页	
 	 * @return
@@ -71,7 +77,7 @@ public class AcountController {
 	 * @param user
 	 * @return
 	*/
-	@RequestMapping("/register")
+	@RequestMapping(value = "/register", produces = "text/html;charset=UTF-8", method = RequestMethod.POST)
 	@ResponseBody
 	public String register(
 			@RequestParam(value="username", required = true)String username,
@@ -97,7 +103,7 @@ public class AcountController {
 	 * @return
 	*/
 	@AuthPass
-	@RequestMapping("/update")
+	@RequestMapping(value = "/update", produces = "text/html;charset=UTF-8", method = RequestMethod.POST)
 	@ResponseBody
 	public String update(UserEntity user, HttpSession session) {
 		user.setUsername(((UserDTO)session.getAttribute("userdata")).getUsername());
@@ -107,6 +113,28 @@ public class AcountController {
 			return "{\"msg\" : 0}";
 		}
 	}
+
+	/**
+	 * 用户绑定传感器
+	 * @param serialnum
+	 * @param session
+	 * @return
+	*/
+	@AuthPass
+	@RequestMapping(value = "/regsensor", produces = "text/html;charset=UTF-8", method = RequestMethod.POST)
+	@ResponseBody
+	public String regsensor(
+			@RequestParam(value="serialnum", required = true)String serialnum, HttpSession session) {
+		Map<String, String> msgMap = accountService.regsensor(((UserDTO)session.getAttribute("userdata")).getUsername(), session.getAttribute("usertoken").toString(), serialnum);
+		if (null != msgMap) {
+			if (msgMap.get("result").toString().trim().equals("1")) {
+				return "{\"msg\" : 1}";
+			} else {
+				return "{\"msg\" : 0 ,\"reason\" : \"" + msgMap.get("reason").toString().trim() + "\"}";
+			}
+		}
+		return "{\"msg\" : 0 ,\"reason\" : \"未知原因\"}";
+	}
 	
 	/**
 	 * 用户登录
@@ -114,7 +142,7 @@ public class AcountController {
 	 * @param session
 	 * @return
 	*/
-	@RequestMapping("/login")
+	@RequestMapping(value = "/login", produces = "text/html;charset=UTF-8", method = RequestMethod.POST)
 	@ResponseBody
 	public String login(
 			@RequestParam(value="username", required = true)String username,
@@ -139,7 +167,7 @@ public class AcountController {
 	 * @param username
 	 * @return
 	*/
-	@RequestMapping("/checkusername")
+	@RequestMapping(value = "/checkusername", produces = "text/html;charset=UTF-8", method = RequestMethod.POST)
 	@ResponseBody
 	public String checkusername(String username) {
 		if (accountService.checkusername(username)) {

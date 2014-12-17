@@ -49,4 +49,11 @@ public interface AccountService {
 	 * @return
 	*/
 	public boolean checkusername(String username);
+	
+	/**
+	 * 用户绑定传感器
+	 * @param serialnum
+	 * @return
+	*/
+	Map<String, String> regsensor(String username, String usertoken, String serialnum);
 }

@@ -80,10 +80,10 @@
 						<li><a href="#">自定义时间查询</a></li>
 					</ul></li>
 				<li class=""><a href="javascript:;"> <i class="fa fa-cogs"></i>
-						<span class="title">设备模块</span> <span class="arrow "></span>
+						<span class="title">设备管理</span> <span class="arrow "></span>
 				</a>
 					<ul class="sub-menu">
-						<li><a href="#">绑定设备</a></li>
+						<li><a href="regsensor.bms">绑定设备</a></li>
 						<li><a href="#">托管设备浏览</a></li>
 					</ul></li>
 			</ul>

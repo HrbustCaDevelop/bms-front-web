@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.alibaba.fastjson.JSON;
 import com.ca.bms.dto.SensorDTO;
 import com.ca.bms.entitys.UserEntity;
+import com.ca.bms.enumtype.SensorStatusEnum;
 import com.ca.bms.enumtype.UserStatusEnum;
 import com.ca.bms.msg.dto.ReturnMsgDTO;
 import com.ca.bms.msg.dto.ReturnMsgSensorDTO;
@@ -131,6 +132,30 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	@Override
+	public Map<String, String> regsensor(String username, String usertoken, String serialnum) {
+		Map<String, String> returnMap = new HashMap<String, String>();
+		String URL = HOSTNAME + SERVER_PATH + "user/regsensor";
+		Map<String, String> paramsMap = new HashMap<String, String>();
+		paramsMap.put("username", username);
+		paramsMap.put("usertoken", usertoken);
+		paramsMap.put("serialnum", serialnum);
+		ReturnMsgDTO dto;
+		try {
+			dto = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap),
+					ReturnMsgDTO.class);
+			if (dto.getReturnmsg().trim().equals(SensorStatusEnum.RS.getDisplayName())) {
+				returnMap.put("result", "1");
+			} else {
+				returnMap.put("result", "0");
+				returnMap.put("reason", dto.getReturnmsg().trim());
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		return returnMap;
 	}
 
 }
