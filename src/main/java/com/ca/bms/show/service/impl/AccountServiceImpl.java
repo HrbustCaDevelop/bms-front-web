@@ -8,15 +8,15 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
-import com.ca.bms.dto.SensorDTO;
-import com.ca.bms.entitys.UserEntity;
-import com.ca.bms.enumtype.SensorStatusEnum;
-import com.ca.bms.enumtype.UserStatusEnum;
-import com.ca.bms.msg.dto.ReturnMsgDTO;
-import com.ca.bms.msg.dto.ReturnMsgSensorDTO;
-import com.ca.bms.msg.dto.ReturnMsgUserDTO;
+import com.ca.bms.common.dto.SensorDTO;
+import com.ca.bms.common.entitys.UserEntity;
+import com.ca.bms.common.enumtype.SensorStatusEnum;
+import com.ca.bms.common.enumtype.UserStatusEnum;
+import com.ca.bms.common.msg.dto.ReturnMsgDTO;
+import com.ca.bms.common.msg.dto.ReturnMsgSensorDTO;
+import com.ca.bms.common.msg.dto.ReturnMsgUserDTO;
 import com.ca.bms.show.service.AccountService;
-import com.ca.bms.show.utils.HttpClientUtils;
+import com.ca.bms.show.utils.HttpClientTools;
 import com.ca.bms.show.utils.HttpTarget;
 
 /**
@@ -36,7 +36,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 		paramsMap.put("phonenum", user.getPhoneNum());
 		ReturnMsgUserDTO rmud;
 		try {
-			rmud = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap),
+			rmud = JSON.parseObject(HttpClientTools.doPost(URL, paramsMap),
 					ReturnMsgUserDTO.class);
 			if (rmud.getReturnmsg().trim().equals(UserStatusEnum.RS.getValue())) {
 				return true;
@@ -56,7 +56,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 		paramsMap.put("password", user.getPassword());
 		ReturnMsgUserDTO rmud;
 		try {
-			rmud = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap),
+			rmud = JSON.parseObject(HttpClientTools.doPost(URL, paramsMap),
 					ReturnMsgUserDTO.class);
 			if (rmud.getReturnmsg().trim().equals(UserStatusEnum.LS.getValue())) {
 				returnMap.put("usertoken", rmud.getUsertoken());
@@ -79,7 +79,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 		paramsMap.put("usertoken", usertoken);
 		ReturnMsgSensorDTO rmud;
 		try {
-			rmud = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap),
+			rmud = JSON.parseObject(HttpClientTools.doPost(URL, paramsMap),
 					ReturnMsgSensorDTO.class);
 			if (rmud.getReturnmsg().trim().equals(UserStatusEnum.FS.getValue())) {
 				returnList = rmud.getSensor();
@@ -103,7 +103,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 		paramsMap.put("usertoken", usertoken);
 		ReturnMsgDTO rmud;
 		try {
-			rmud = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap),
+			rmud = JSON.parseObject(HttpClientTools.doPost(URL, paramsMap),
 					ReturnMsgDTO.class);
 			if (rmud.getReturnmsg().trim().equals(UserStatusEnum.US.getValue())) {
 				return true;
@@ -122,7 +122,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 		paramsMap.put("username", username);
 		ReturnMsgDTO rmud;
 		try {
-			rmud = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap),
+			rmud = JSON.parseObject(HttpClientTools.doPost(URL, paramsMap),
 					ReturnMsgDTO.class);
 			if (rmud.getReturnmsg().trim().equals(UserStatusEnum.ACBU.getValue())) {
 				return true;
@@ -144,7 +144,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 		paramsMap.put("serialnum", serialnum);
 		ReturnMsgDTO dto;
 		try {
-			dto = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap),
+			dto = JSON.parseObject(HttpClientTools.doPost(URL, paramsMap),
 					ReturnMsgDTO.class);
 			if (dto.getReturnmsg().trim().equals(SensorStatusEnum.RS.getDisplayName())) {
 				returnMap.put("result", "1");

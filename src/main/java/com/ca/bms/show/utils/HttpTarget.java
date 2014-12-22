@@ -5,6 +5,6 @@ package com.ca.bms.show.utils;
  * @version:1.0
  */
 public abstract class HttpTarget {
-	public static final String HOSTNAME = "http://222.27.196.5";
-	public static final String SERVER_PATH = "/bms/";
+	public static final String HOSTNAME = "http://121.42.140.165:12256";
+	public static final String SERVER_PATH = "/api/";
 }

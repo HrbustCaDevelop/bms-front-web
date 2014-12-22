@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ca.bms.dto.UserDTO;
-import com.ca.bms.entitys.UserEntity;
-import com.ca.bms.show.annotation.AuthPass;
+import com.ca.bms.common.dto.UserDTO;
+import com.ca.bms.common.entitys.UserEntity;
+import com.ca.bms.show.annotations.AuthPass;
 import com.ca.bms.show.service.AccountService;
 
 /**

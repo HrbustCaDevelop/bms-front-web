@@ -33,10 +33,10 @@ import java.util.Map;
  * @since：2014年11月29日 上午10:46:38
  * @version:1.0
  */
-public class HttpClientUtils {
+public class HttpClientTools {
 
 	private final static Logger logger = LoggerFactory
-			.getLogger(HttpClientUtils.class);
+			.getLogger(HttpClientTools.class);
 
 	public final static int TIMEOUT = 900000;
 

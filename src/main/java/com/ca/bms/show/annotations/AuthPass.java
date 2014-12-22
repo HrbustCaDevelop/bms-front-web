@@ -1,4 +1,4 @@
-package com.ca.bms.show.annotation;
+package com.ca.bms.show.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

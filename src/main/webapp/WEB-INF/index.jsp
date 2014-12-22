@@ -39,7 +39,7 @@
 		    			if (data.msg == 1) {
 		    				$("#msgSUCC").show();
 		    				$("#msgFAIL").hide();
-		    				setTimeout("window.location='main.bms'",3000);
+		    				setTimeout("window.location='main.bms'",2000);
 		    			}else {
 		    				$("#logincommit").show();
 		    				$("#msgSUCC").hide();

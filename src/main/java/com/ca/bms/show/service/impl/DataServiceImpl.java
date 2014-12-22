@@ -1,21 +1,16 @@
 package com.ca.bms.show.service.impl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
-import com.ca.bms.dto.SensorDTO;
-import com.ca.bms.dto.SensorDataDTO;
-import com.ca.bms.enumtype.SensorDataStatusEnum;
-import com.ca.bms.enumtype.UserStatusEnum;
-import com.ca.bms.msg.dto.ReturnMsgDataDTO;
-import com.ca.bms.msg.dto.ReturnMsgSensorDTO;
+import com.ca.bms.common.dto.SensorDataDTO;
+import com.ca.bms.common.enumtype.SensorDataStatusEnum;
+import com.ca.bms.common.msg.dto.ReturnMsgDataDTO;
 import com.ca.bms.show.service.DataService;
-import com.ca.bms.show.utils.HttpClientUtils;
+import com.ca.bms.show.utils.HttpClientTools;
 import com.ca.bms.show.utils.HttpTarget;
 
 /**
@@ -36,7 +31,7 @@ public class DataServiceImpl extends HttpTarget implements DataService {
 		paramsMap.put("serialnum", serialnum);
 		ReturnMsgDataDTO rmud;
 		try {
-			rmud = JSON.parseObject(HttpClientUtils.doPost(URL, paramsMap),
+			rmud = JSON.parseObject(HttpClientTools.doPost(URL, paramsMap),
 					ReturnMsgDataDTO.class);
 			if (rmud.getReturnmsg().trim().equals(SensorDataStatusEnum.DFS.getValue())) {
 				return rmud.getData();

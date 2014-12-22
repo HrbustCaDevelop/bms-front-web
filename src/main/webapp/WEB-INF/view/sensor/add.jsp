@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.ca.bms.dto.SensorDTO"%>
+<%@page import="com.ca.bms.common.dto.SensorDTO"%>
 
 <%@ include file="/WEB-INF/view/divide/header.jsp"%>
 

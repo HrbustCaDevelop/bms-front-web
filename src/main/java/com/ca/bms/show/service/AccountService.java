@@ -3,8 +3,8 @@ package com.ca.bms.show.service;
 import java.util.List;
 import java.util.Map;
 
-import com.ca.bms.dto.SensorDTO;
-import com.ca.bms.entitys.UserEntity;
+import com.ca.bms.common.dto.SensorDTO;
+import com.ca.bms.common.entitys.UserEntity;
 
 /**
  * @author：刘志龙

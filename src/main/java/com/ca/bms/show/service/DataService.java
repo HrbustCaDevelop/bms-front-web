@@ -1,6 +1,6 @@
 package com.ca.bms.show.service;
 
-import com.ca.bms.dto.SensorDataDTO;
+import com.ca.bms.common.dto.SensorDataDTO;
 
 /**
  * @author：刘志龙

@@ -72,7 +72,7 @@
 		    			if (data.msg == 1) {
 		    				$("#regFAIL").hide();
 		    				$("#regSUCC").show();
-		    				setTimeout("window.location='index.bms'",3000);
+		    				setTimeout("window.location='index.bms'",2000);
 		    			}else {
 		    				$("#regcommit").show();
 		    				$("#regFAIL").show();

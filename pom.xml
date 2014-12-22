@@ -2,17 +2,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ca.bms</groupId>
-	<artifactId>bms-front</artifactId>
+	<artifactId>front</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
 	<name>BMS Front Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<properties>
 		<!-- 指定spring.version -->
 		<spring.version>4.0.2.RELEASE</spring.version>
 	</properties>
-	
+
 	<dependencies>
 
 		<!-- Spring begin -->
@@ -46,9 +46,9 @@
 
 		<!-- BMS-COMMON -->
 		<dependency>
-			<groupId>com.ca</groupId>
-			<artifactId>bms-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>com.ca.bms</groupId>
+			<artifactId>common</artifactId>
+			<version>0.0.1</version>
 		</dependency>
 
 		<!-- Http Client begin -->
@@ -104,7 +104,7 @@
 			<version>1.1.2</version>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -120,6 +120,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>bms-front</finalName>
+		<finalName>front</finalName>
 	</build>
 </project>
