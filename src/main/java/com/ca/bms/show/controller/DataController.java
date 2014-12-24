@@ -44,7 +44,20 @@ public class DataController {
 		request.setAttribute("serialnum", id);
 		return "/view/data/show";
 	}
-
+	
+	/**
+	 * 浏览报警数据
+	 * @param id
+	 * @param request
+	 * @return
+	 */
+	@AuthPass
+	@RequestMapping("/alert.bms")
+	public String alert_page(String id, HttpServletRequest request) {
+		request.setAttribute("serialnum", id);
+		return "/view/alert/list";
+	}
+	
 	/**
 	 * 列出传感器
 	 * @return

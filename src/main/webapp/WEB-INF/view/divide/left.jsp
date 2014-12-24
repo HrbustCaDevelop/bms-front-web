@@ -71,14 +71,16 @@
 						</ul>
 					</c:if></li>
 				<li class=""><a href="javascript:;"> <i
-						class="fa fa-bar-chart-o"></i> <span class="title">历史数据</span> <span
+						class="fa fa-bar-chart-o"></i> <span class="title">报警数据查询</span> <span
 						class="arrow "></span>
 				</a>
-					<ul class="sub-menu">
-						<li><a href="#">最近1个月</a></li>
-						<li><a href="#">最近3个月</a></li>
-						<li><a href="#">自定义时间查询</a></li>
-					</ul></li>
+					<c:if test="${!empty mysensor}">
+						<ul class="sub-menu">
+							<c:forEach items="${mysensor}" var="sensor">
+								<li><a href="alert.bms?id=${sensor.serialNum}">${sensor.sensorType}</a></li>
+							</c:forEach>
+						</ul>
+					</c:if></li>
 				<li class=""><a href="javascript:;"> <i class="fa fa-cogs"></i>
 						<span class="title">设备管理</span> <span class="arrow "></span>
 				</a>

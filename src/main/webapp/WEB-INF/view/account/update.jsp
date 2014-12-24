@@ -6,6 +6,15 @@
 
 <script type="text/javascript">
 	function updatemsg() {
+		
+		var re = /^1\d{10}$/
+		if (updateMsg.phoneNum.value != "" && !re.test(updateMsg.phoneNum.value)) {
+			$("#phoneFAIL").show();
+			return;
+		} else {
+			$("#phoneFAIL").hide();
+		}
+		
 		$("#updatecommit").hide();
 		$.ajax({
 		      type: "post",
@@ -52,7 +61,11 @@
 					<h3 class="panel-title">个人信息修改</h3>
 				</div>
 				<div class="panel-body">
-
+					<div id="phoneFAIL" class="alert alert-danger display-hide">
+						<button class="close" data-close="alert"></button>
+						<span>请填写中国地区的手机号</span>
+					</div>
+			
 					<div id="msgSUCC" class="alert alert-success display-hide">
 						<button class="close" data-close="alert"></button>
 						<strong>Success!</strong> 更新成功!跳转到登陆页

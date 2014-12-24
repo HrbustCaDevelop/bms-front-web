@@ -54,6 +54,14 @@
 	}
 	
 	function register() {
+		var re = /^1\d{10}$/
+		if (regform.phonenum.value != "" && !re.test(regform.phonenum.value)) {
+			$("#phoneFAIL").show();
+			return;
+		} else {
+			$("#phoneFAIL").hide();
+		}
+		
 		if (regform.password.value == "") {
 			$("#paraminvide").show();
 			return;
@@ -104,6 +112,11 @@
 			<div id="checkSUCC" class="alert alert-success display-hide">
 				<button class="close" data-close="alert"></button>
 				<span>该用户名可以使用</span>
+			</div>
+			
+			<div id="phoneFAIL" class="alert alert-danger display-hide">
+				<button class="close" data-close="alert"></button>
+				<span>请填写中国地区的手机号</span>
 			</div>
 			
 			<div id="checkFAIL" class="alert alert-danger display-hide">
