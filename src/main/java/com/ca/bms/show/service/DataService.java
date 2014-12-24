@@ -1,5 +1,8 @@
 package com.ca.bms.show.service;
 
+import java.util.List;
+
+import com.ca.bms.common.dto.AlertMsgDTO;
 import com.ca.bms.common.dto.SensorDataDTO;
 
 /**
@@ -13,4 +16,11 @@ public interface DataService {
 	 * @return
 	*/
 	public SensorDataDTO realtime(String username, String usertoken, String serialnum);
+	
+	/**
+	 * 获取报警信息
+	 * @param serialnum
+	 * @return
+	 */
+	public List<AlertMsgDTO> getAlertBySerial(String username, String usertoken,String serialnum);
 }

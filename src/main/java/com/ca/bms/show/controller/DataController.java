@@ -53,8 +53,10 @@ public class DataController {
 	 */
 	@AuthPass
 	@RequestMapping("/alert.bms")
-	public String alert_page(String id, HttpServletRequest request) {
+	public String alert_page(String id, HttpServletRequest request, HttpSession session) {
 		request.setAttribute("serialnum", id);
+		request.setAttribute("alertmsg", dataService.getAlertBySerial(((UserDTO)session.getAttribute("userdata")).getUsername(), 
+				session.getAttribute("usertoken").toString(), id));
 		return "/view/alert/list";
 	}
 	
@@ -78,7 +80,7 @@ public class DataController {
 	@AuthPass
 	@RequestMapping(value = "/realtime", produces = "text/html;charset=UTF-8", method = RequestMethod.POST)
 	@ResponseBody
-	public String realtime(String serialnum, HttpServletRequest request, HttpSession session) {
+	public String realtime(String serialnum, HttpSession session) {
 		SensorDataDTO data = dataService.realtime(
 				((UserDTO)session.getAttribute("userdata")).getUsername(), 
 				session.getAttribute("usertoken").toString(),

@@ -59,17 +59,17 @@
 								width="100%">
 								<thead>
 									<tr>
-										<td>序号</td>
-										<td>时间</td>
+										<td>序列号</td>
+										<td>报警时间</td>
 									</tr>
 								</thead>
 
-								<c:if test="${!empty mysensor}">
-									<c:forEach items="${mysensor}" var="sensor">
+								<c:if test="${!empty alertmsg}">
+									<c:forEach items="${alertmsg}" var="msg">
 										<tbody>
 											<tr>
-												<td>${sensor.serialNum}</td>
-												<td>${sensor.sensoraddr}</td>
+												<td>${serialnum}</td>
+												<td>${msg.createTime}</td>
 												
 											</tr>
 										</tbody>
