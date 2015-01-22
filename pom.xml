@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.ca.bms</groupId>
-	<artifactId>front</artifactId>
+	<groupId>me.zhilong.bms</groupId>
+	<artifactId>bms-front</artifactId>
 	<packaging>war</packaging>
-	<version>1.0</version>
-	<name>BMS Front Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<version>1.1</version>
+	<name>bms-web-front</name>
+	<url>http://zhilong.me</url>
 
 	<properties>
 		<!-- 指定spring.version -->
@@ -46,9 +46,9 @@
 
 		<!-- BMS-COMMON -->
 		<dependency>
-			<groupId>com.ca.bms</groupId>
-			<artifactId>common</artifactId>
-			<version>0.0.1</version>
+			<groupId>me.zhilong.bms</groupId>
+			<artifactId>bms-common</artifactId>
+			<version>1.0</version>
 		</dependency>
 
 		<!-- Http Client begin -->
