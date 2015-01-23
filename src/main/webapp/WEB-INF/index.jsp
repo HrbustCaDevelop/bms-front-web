@@ -102,7 +102,7 @@
 	<!-- END LOGIN -->
 	<!-- BEGIN COPYRIGHT -->
 	<div id="copyright">
-		2014 &copy; Alex
+		2014 &copy; <a href="http://zhilong.me">zhilong.me</a>
 	</div>
 	<!-- END COPYRIGHT -->
 	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->

@@ -3,7 +3,7 @@
 
 <!-- BEGIN FOOTER -->
 <div class="footer">
-	<div class="footer-inner">2014 &copy; Alex</div>
+	<div class="footer-inner">2014 &copy; <a href="http://zhilong.me">zhilong.me</a></div>
 	<div class="footer-tools">
 		<span class="go-top"> <i class="fa fa-angle-up"></i>
 		</span>
