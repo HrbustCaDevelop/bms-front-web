@@ -9,9 +9,11 @@ import me.zhilong.bms.show.service.AccountService;
 import me.zhilong.bms.show.utils.HttpClientTools;
 import me.zhilong.bms.show.utils.HttpTarget;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
+
 import me.zhilong.bms.common.dto.SensorDTO;
 import me.zhilong.bms.common.entitys.UserEntity;
 import me.zhilong.bms.common.enumtype.SensorStatusEnum;
@@ -26,10 +28,13 @@ import me.zhilong.bms.common.msg.dto.ReturnMsgUserDTO;
  * @version:1.0
  */
 @Service("accountService")
-public class AccountServiceImpl extends HttpTarget implements AccountService {
+public class AccountServiceImpl implements AccountService {
 
+	@Autowired
+	HttpTarget httpTarget;
+		
 	public boolean register(UserEntity user) {
-		String URL = HOSTNAME + SERVER_PATH + "user/add";
+		String URL = httpTarget.getHostname() + httpTarget.getPath() + "user/add";
 		Map<String, String> paramsMap = new HashMap<String, String>();
 		paramsMap.put("username", user.getUsername());
 		paramsMap.put("password", user.getPassword());
@@ -51,7 +56,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 
 	public Map<String, Object> login(UserEntity user) {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
-		String URL = HOSTNAME + SERVER_PATH + "user/login";
+		String URL = httpTarget.getHostname() + httpTarget.getPath() + "user/login";
 		Map<String, String> paramsMap = new HashMap<String, String>();
 		paramsMap.put("username", user.getUsername());
 		paramsMap.put("password", user.getPassword());
@@ -74,7 +79,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 	@Override
 	public List<SensorDTO> getSensor(String username, String usertoken) {
 		List<SensorDTO> returnList = new ArrayList<SensorDTO>();
-		String URL = HOSTNAME + SERVER_PATH + "user/mysensor";
+		String URL = httpTarget.getHostname() + httpTarget.getPath() + "user/mysensor";
 		Map<String, String> paramsMap = new HashMap<String, String>();
 		paramsMap.put("username", username);
 		paramsMap.put("usertoken", usertoken);
@@ -95,7 +100,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 
 	@Override
 	public boolean update(String usertoken, UserEntity entity) {
-		String URL = HOSTNAME + SERVER_PATH + "user/update";
+		String URL = httpTarget.getHostname() + httpTarget.getPath() + "user/update";
 		Map<String, String> paramsMap = new HashMap<String, String>();
 		paramsMap.put("username", entity.getUsername());
 		paramsMap.put("password", entity.getPassword());
@@ -118,7 +123,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 
 	@Override
 	public boolean checkusername(String username) {
-		String URL = HOSTNAME + SERVER_PATH + "user/checkusername";
+		String URL = httpTarget.getHostname() + httpTarget.getPath() + "user/checkusername";
 		Map<String, String> paramsMap = new HashMap<String, String>();
 		paramsMap.put("username", username);
 		ReturnMsgDTO rmud;
@@ -138,7 +143,7 @@ public class AccountServiceImpl extends HttpTarget implements AccountService {
 	@Override
 	public Map<String, String> regsensor(String username, String usertoken, String serialnum) {
 		Map<String, String> returnMap = new HashMap<String, String>();
-		String URL = HOSTNAME + SERVER_PATH + "user/regsensor";
+		String URL = httpTarget.getHostname() + httpTarget.getPath() + "user/regsensor";
 		Map<String, String> paramsMap = new HashMap<String, String>();
 		paramsMap.put("username", username);
 		paramsMap.put("usertoken", usertoken);

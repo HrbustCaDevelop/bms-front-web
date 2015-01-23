@@ -1,10 +1,34 @@
 package me.zhilong.bms.show.utils;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 /**
  * @author：刘志龙
  * @since：2014年12月13日 下午12:48:12
  * @version:1.0
  */
-public abstract class HttpTarget {
-	public static final String HOSTNAME = "http://121.42.140.165:12256";
-	public static final String SERVER_PATH = "/api/";
+@Component("httpTarget")
+public class HttpTarget {
+	@Value("#{configLoader['api.hostname']}")
+	public String hostname;
+	@Value("#{configLoader['api.path']}")
+	public String path;
+
+	public String getHostname() {
+		return hostname;
+	}
+
+	public void setHostname(String hostname) {
+		this.hostname = hostname;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
 }
