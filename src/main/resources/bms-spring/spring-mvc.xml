@@ -29,10 +29,6 @@
 			</list>
 		</property>
 	</bean>
-	<!-- <bean id="propertyConfigurer"
-		class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-		<property name="properties" ref="configLoader" />
-	</bean> -->
 
 	<!-- 登陆拦截器 -->
 	<mvc:interceptors>
