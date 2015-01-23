@@ -1,10 +1,10 @@
-package com.ca.bms.show.service;
+package me.zhilong.bms.show.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.ca.bms.common.dto.SensorDTO;
-import com.ca.bms.common.entitys.UserEntity;
+import me.zhilong.bms.common.dto.SensorDTO;
+import me.zhilong.bms.common.entitys.UserEntity;
 
 /**
  * @author：刘志龙

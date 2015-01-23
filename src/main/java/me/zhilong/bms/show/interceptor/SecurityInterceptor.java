@@ -1,15 +1,15 @@
-package com.ca.bms.show.interceptor;
+package me.zhilong.bms.show.interceptor;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import me.zhilong.bms.show.annotations.AuthPass;
+
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.ca.bms.show.annotations.AuthPass;
 
 /**
  * 登陆权限鉴定

@@ -1,4 +1,4 @@
-package com.ca.bms.show.utils;
+package me.zhilong.bms.show.utils;
 /**
  * @author：刘志龙
  * @since：2014年12月13日 下午12:48:12

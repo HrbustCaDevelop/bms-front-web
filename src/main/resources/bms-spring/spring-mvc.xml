@@ -10,14 +10,14 @@
 	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
 	<!-- 注解扫描包 -->
-	<context:component-scan base-package="com.ca.bms" />
+	<context:component-scan base-package="me.zhilong.bms" />
 
 	<!-- 开启注解 -->
 	<mvc:annotation-driven />
 	
 	<!-- 登陆拦截器 呵呵 -->
 	<mvc:interceptors>
-		<bean class="com.ca.bms.show.interceptor.SecurityInterceptor"></bean>
+		<bean class="me.zhilong.bms.show.interceptor.SecurityInterceptor"></bean>
 	</mvc:interceptors>
 	
 	<!-- 多方法 -->

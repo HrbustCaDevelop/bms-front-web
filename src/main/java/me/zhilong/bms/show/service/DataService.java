@@ -1,9 +1,9 @@
-package com.ca.bms.show.service;
+package me.zhilong.bms.show.service;
 
 import java.util.List;
 
-import com.ca.bms.common.dto.AlertMsgDTO;
-import com.ca.bms.common.dto.SensorDataDTO;
+import me.zhilong.bms.common.dto.AlertMsgDTO;
+import me.zhilong.bms.common.dto.SensorDataDTO;
 
 /**
  * @author：刘志龙

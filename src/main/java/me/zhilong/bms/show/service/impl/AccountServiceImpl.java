@@ -1,23 +1,24 @@
-package com.ca.bms.show.service.impl;
+package me.zhilong.bms.show.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import me.zhilong.bms.show.service.AccountService;
+import me.zhilong.bms.show.utils.HttpClientTools;
+import me.zhilong.bms.show.utils.HttpTarget;
+
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
-import com.ca.bms.common.dto.SensorDTO;
-import com.ca.bms.common.entitys.UserEntity;
-import com.ca.bms.common.enumtype.SensorStatusEnum;
-import com.ca.bms.common.enumtype.UserStatusEnum;
-import com.ca.bms.common.msg.dto.ReturnMsgDTO;
-import com.ca.bms.common.msg.dto.ReturnMsgSensorDTO;
-import com.ca.bms.common.msg.dto.ReturnMsgUserDTO;
-import com.ca.bms.show.service.AccountService;
-import com.ca.bms.show.utils.HttpClientTools;
-import com.ca.bms.show.utils.HttpTarget;
+import me.zhilong.bms.common.dto.SensorDTO;
+import me.zhilong.bms.common.entitys.UserEntity;
+import me.zhilong.bms.common.enumtype.SensorStatusEnum;
+import me.zhilong.bms.common.enumtype.UserStatusEnum;
+import me.zhilong.bms.common.msg.dto.ReturnMsgDTO;
+import me.zhilong.bms.common.msg.dto.ReturnMsgSensorDTO;
+import me.zhilong.bms.common.msg.dto.ReturnMsgUserDTO;
 
 /**
  * @author：刘志龙

@@ -1,4 +1,4 @@
-package com.ca.bms.show.utils;
+package me.zhilong.bms.show.utils;
 
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;

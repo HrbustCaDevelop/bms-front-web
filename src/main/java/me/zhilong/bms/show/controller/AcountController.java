@@ -1,10 +1,13 @@
-package com.ca.bms.show.controller;
+package me.zhilong.bms.show.controller;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import me.zhilong.bms.show.annotations.AuthPass;
+import me.zhilong.bms.show.service.AccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ca.bms.common.dto.UserDTO;
-import com.ca.bms.common.entitys.UserEntity;
-import com.ca.bms.show.annotations.AuthPass;
-import com.ca.bms.show.service.AccountService;
+import me.zhilong.bms.common.dto.UserDTO;
+import me.zhilong.bms.common.entitys.UserEntity;
 
 /**
  * 账户功能拦截器

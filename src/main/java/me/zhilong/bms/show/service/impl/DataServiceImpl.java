@@ -1,20 +1,21 @@
-package com.ca.bms.show.service.impl;
+package me.zhilong.bms.show.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import me.zhilong.bms.show.service.DataService;
+import me.zhilong.bms.show.utils.HttpClientTools;
+import me.zhilong.bms.show.utils.HttpTarget;
+
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
-import com.ca.bms.common.dto.AlertMsgDTO;
-import com.ca.bms.common.dto.SensorDataDTO;
-import com.ca.bms.common.enumtype.SensorDataStatusEnum;
-import com.ca.bms.common.msg.dto.ReturnMsgAlertDTO;
-import com.ca.bms.common.msg.dto.ReturnMsgDataDTO;
-import com.ca.bms.show.service.DataService;
-import com.ca.bms.show.utils.HttpClientTools;
-import com.ca.bms.show.utils.HttpTarget;
+import me.zhilong.bms.common.dto.AlertMsgDTO;
+import me.zhilong.bms.common.dto.SensorDataDTO;
+import me.zhilong.bms.common.enumtype.SensorDataStatusEnum;
+import me.zhilong.bms.common.msg.dto.ReturnMsgAlertDTO;
+import me.zhilong.bms.common.msg.dto.ReturnMsgDataDTO;
 
 /**
  * @author：刘志龙

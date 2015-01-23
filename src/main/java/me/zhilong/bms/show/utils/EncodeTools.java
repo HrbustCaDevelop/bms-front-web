@@ -1,4 +1,4 @@
-package com.ca.bms.show.utils;
+package me.zhilong.bms.show.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

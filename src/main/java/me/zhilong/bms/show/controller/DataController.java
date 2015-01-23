@@ -1,7 +1,10 @@
-package com.ca.bms.show.controller;
+package me.zhilong.bms.show.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import me.zhilong.bms.show.annotations.AuthPass;
+import me.zhilong.bms.show.service.DataService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,10 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
-import com.ca.bms.common.dto.SensorDataDTO;
-import com.ca.bms.common.dto.UserDTO;
-import com.ca.bms.show.annotations.AuthPass;
-import com.ca.bms.show.service.DataService;
+import me.zhilong.bms.common.dto.SensorDataDTO;
+import me.zhilong.bms.common.dto.UserDTO;
 
 /**
  * 传感器数据Controller
