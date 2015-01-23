@@ -8,9 +8,11 @@ import me.zhilong.bms.show.service.DataService;
 import me.zhilong.bms.show.utils.HttpClientTools;
 import me.zhilong.bms.show.utils.HttpTarget;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
+
 import me.zhilong.bms.common.dto.AlertMsgDTO;
 import me.zhilong.bms.common.dto.SensorDataDTO;
 import me.zhilong.bms.common.enumtype.SensorDataStatusEnum;
@@ -23,12 +25,15 @@ import me.zhilong.bms.common.msg.dto.ReturnMsgDataDTO;
  * @version:1.0
  */
 @Service("dataService")
-public class DataServiceImpl extends HttpTarget implements DataService {
+public class DataServiceImpl implements DataService {
 
+	@Autowired
+	HttpTarget httpTarget;
+	
 	@Override
 	public SensorDataDTO realtime(String username, String usertoken,
 			String serialnum) {
-		String URL = HOSTNAME + SERVER_PATH + "sensordata/realtime";
+		String URL = httpTarget.getHostname() + httpTarget.getPath() + "sensordata/realtime";
 		Map<String, String> paramsMap = new HashMap<String, String>();
 		paramsMap.put("username", username);
 		paramsMap.put("usertoken", usertoken);
@@ -49,7 +54,7 @@ public class DataServiceImpl extends HttpTarget implements DataService {
 
 	@Override
 	public List<AlertMsgDTO> getAlertBySerial(String username, String usertoken,String serialnum) {
-		String URL = HOSTNAME + SERVER_PATH + "sensordata/alert/get";
+		String URL = httpTarget.getHostname() + httpTarget.getPath() + "sensordata/alert/get";
 		Map<String, String> paramsMap = new HashMap<String, String>();
 		paramsMap.put("username", username);
 		paramsMap.put("usertoken", usertoken);
